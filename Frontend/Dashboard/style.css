@@ -1,0 +1,60 @@
+body{
+    margin:0;
+    overflow:hidden;
+}
+
+.right_menu_container{
+    width:15%;
+    height:100%;
+    position:absolute;
+    background-color:black;
+}
+
+.right_menu_items{
+    /*background-color:yellow;*/
+    width:100%;
+    position:absolute;
+    top: 25%;
+    height:50%;
+    
+}
+
+
+.menu_item{
+    background-color:turquoise;
+    margin-left:10px;
+    margin-right:10px;
+    height: 10%;
+    margin-top:5px;
+    cursor:pointer;
+    transition-duration: 0.3s;
+}
+
+.menu_item:hover{
+    background-color: tomato;
+    margin-left:15px;
+    margin-right: 0px;
+}
+
+
+
+
+.menu_item a{
+    color:white;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+
+.dashboard_view_container{
+    position:absolute;
+    width:85%;
+    height:100%;
+    background-color:yellowgreen;
+    left:15%;
+}
+
+.dashboard_view{
+    height:100%;
+    width:100%;
+}
