@@ -3,45 +3,47 @@
     <head>
         <link rel="stylesheet" href="style.css">
         <script src="functionality.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     </head>
     <body>
         <div class="right_menu_container">
             <div class="right_menu_items">
 
                 <div class="menu_item announcements_container" onclick="selectDashboard(0);">
-                    <a href="">Announcements</a>
+                    <i class="glyphicon glyphicon-home"></i><span>Announcements</span>
                 </div>
 
-                <div class="menu_item teams_container" onclick="selectDashboard(1);">
-                    <a href="">Teams</a>
+                <div class="menu_item teams_container" onclick="selectDashboard(1);buildTeamsDashboard();">
+                    <i class="glyphicon glyphicon-star"></i><span>Teams</span>
                 </div>
-
-                <div class="menu_item courses_container" onclick="selectDashboard(2);">
-                    <a href="">Courses</a>
+                
+                <div class="menu_item chat_container" onclick="selectDashboard(2);">
+                    <i class="glyphicon glyphicon-comment"></i><span>Chat</span>
                 </div>
+                
 
                 <div class="menu_item assigments_container" onclick="selectDashboard(3);">
-                    <a href="">Assigments</a>
+                    <i class="glyphicon glyphicon-tasks"></i><span>Assigments</span>
                 </div>
 
                 <div class="menu_item grades_container" onclick="selectDashboard(4);">
-                    <a href="">Grades</a>
+                    <i class="glyphicon glyphicon-pencil"></i><span>Grades</span>
                 </div>
 
                 <div class="menu_item calendar_container" onclick="selectDashboard(5);">
-                    <a href="">Calendar</a>
+                    <i class="glyphicon glyphicon-calendar"></i><span>Calendar</span>
                 </div>
 
                 <div class="menu_item files_container" onclick="selectDashboard(6);">
-                    <a href="">Files</a>
+                    <i class="glyphicon glyphicon-folder-open"></i><span>Files</span>
                 </div>
                 
                 <div class="menu_item profile_container" onclick="selectDashboard(7);">
-                    <a href="">Profile</a>
+                    <i class="glyphicon glyphicon-user"></i><span>Profile</span>
                 </div>
 
                 <div class="menu_item settings_container" onclick="selectDashboard(8);">
-                    <a href="">Settings</a>
+                    <i class="glyphicon glyphicon-cog"></i><span>Settings</span>
                 </div>
             </div>
         </div>
@@ -52,11 +54,13 @@
             </div>
     
             <div class="teams_dashboard dashboard_view" id="teams_dashboard">
-                <h1>Teams dashboard</h1>
+                <div class="team_right_menu">
+                    <div class="team_menu_container" id="team_menu"></div>
+                </div>
             </div>
 
-            <div class="courses_dashboard dashboard_view" id="courses_dashboard">
-                <h1>Course dashboard</h1>
+            <div class="chat_dashboard dashboard_view" id="chat_dashboard">
+                <h1>Chat dashboard</h1>
             </div>
 
             <div class="assigments_dashboard dashboard_view" id="assigments_dashboard">
