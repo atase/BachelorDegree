@@ -9,5 +9,6 @@ namespace Kidney.Core.Services
     public interface IGiverService : IService<Receiver>
     {
         public bool Register(Giver giver);
+        public Giver GetInformations(int id);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Kidney.Core.Entities;
+﻿using Kidney.Core.DTOs;
+using Kidney.Core.Entities;
 using Kidney.Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,5 +31,13 @@ namespace Kidney.API.Controllers
 
             return Ok(giver);
         }
+
+        [HttpPost]
+        [Route("info")]
+        public ActionResult GiverInformation([FromBody] GiverDTO giverDTO)
+        {
+            return Ok(_giverService.GetInformations(giverDTO.Id));
+        }
+
     }
 }

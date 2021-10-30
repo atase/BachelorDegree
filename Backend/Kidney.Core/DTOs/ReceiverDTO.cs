@@ -5,12 +5,11 @@ using System.Text;
 
 namespace Kidney.Core.DTOs
 {
-    class ReceiverDTO
+    public class ReceiverDTO
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Email { get; set; }
-
-        public List<User> CompatibleGivers { get; set; }
+        //public List<GiverDTO> CompatibleGivers { get; set; }
     }
 }

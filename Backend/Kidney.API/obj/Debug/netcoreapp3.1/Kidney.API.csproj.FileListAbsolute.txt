@@ -134,3 +134,5 @@ C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.API\obj\Debug\netc
 C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.API\obj\Debug\netcoreapp3.1\Kidney.API.dll
 C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.API\obj\Debug\netcoreapp3.1\Kidney.API.pdb
 C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.API\obj\Debug\netcoreapp3.1\Kidney.API.genruntimeconfig.cache
+C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.API\bin\Debug\netcoreapp3.1\HungarianAlgorithm.dll
+C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.API\bin\Debug\netcoreapp3.1\HungarianAlgorithm.pdb

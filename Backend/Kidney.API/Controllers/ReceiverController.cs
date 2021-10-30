@@ -1,4 +1,5 @@
-﻿using Kidney.Core.Entities;
+﻿using Kidney.Core.DTOs;
+using Kidney.Core.Entities;
 using Kidney.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -27,6 +28,12 @@ namespace Kidney.API.Controllers
             }
 
             return Ok(receiver);
+        }
+        [HttpPost]
+        [Route("info")]
+        public ActionResult ReceiverInformations([FromBody] ReceiverDTO receiverDTO)
+        {
+            return Ok(_receiverService.GetInformations(receiverDTO.Id));
         }
     }
 }

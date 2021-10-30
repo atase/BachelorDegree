@@ -1521,6 +1521,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "HungarianAlgorithm/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11"
+        },
+        "compile": {
+          "bin/placeholder/HungarianAlgorithm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HungarianAlgorithm.dll": {}
+        }
+      },
       "Kidney.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -5802,6 +5815,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "HungarianAlgorithm/1.0.0": {
+      "type": "project",
+      "path": "../HungarianAlgorithm/HungarianAlgorithm.csproj",
+      "msbuildProject": "../HungarianAlgorithm/HungarianAlgorithm.csproj"
+    },
     "Kidney.Core/1.0.0": {
       "type": "project",
       "path": "../Kidney.Core/Kidney.Core.csproj",
@@ -5810,6 +5828,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "HungarianAlgorithm >= 1.0.0",
       "Kidney.Core >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.11",
@@ -5843,6 +5862,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj": {
+              "projectPath": "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj"
+            },
             "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj": {
               "projectPath": "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj"
             }

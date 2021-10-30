@@ -29,7 +29,7 @@ namespace Kidney.Infrastructure.Repositories.Base
             _applicationContext.Set<T>().Remove(entity);
             await _applicationContext.SaveChangesAsync();
         }
-        public async Task<IReadOnlyList<T>> GetAll()
+        public async Task<List<T>> GetAll()
         {
             return await _applicationContext.Set<T>().ToListAsync();
         }

@@ -30,3 +30,5 @@ C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.Infrastructure\obj
 C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.Infrastructure\obj\Debug\netcoreapp3.1\Kidney.Infrastructure.dll
 C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.Infrastructure\obj\Debug\netcoreapp3.1\Kidney.Infrastructure.pdb
 C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.Infrastructure\obj\Debug\netcoreapp3.1\Kidney.Infrastructure.genruntimeconfig.cache
+C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.Infrastructure\bin\Debug\netcoreapp3.1\HungarianAlgorithm.dll
+C:\Users\tase2\Desktop\Bachelor\BachelorDegree\Backend\Kidney.Infrastructure\bin\Debug\netcoreapp3.1\HungarianAlgorithm.pdb

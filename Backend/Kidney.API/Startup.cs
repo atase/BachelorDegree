@@ -26,6 +26,14 @@ namespace Transplant.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddDefaultPolicy(builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
+
             services.AddControllers();
             services.AddDbContext<ApplicationContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("KidneyTransplant")));
@@ -38,6 +46,8 @@ namespace Transplant.API
 
             services.AddTransient<IReceiverRepository, ReceiverRepository>();
             services.AddTransient<IReceiverService, ReceiverService>();
+
+            services.AddTransient<IMatchingService, MatchingService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -50,7 +60,7 @@ namespace Transplant.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

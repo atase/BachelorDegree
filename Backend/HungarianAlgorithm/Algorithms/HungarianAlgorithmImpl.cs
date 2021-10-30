@@ -7,7 +7,7 @@ using System.Text;
 
 namespace HungarianAlgorithm.Algorithms
 {
-    class HungarianAlgorithmImpl : Algorithm
+    public class HungarianAlgorithmImpl : Algorithm
     {
 
         private int optimalMatchingWeight;
@@ -39,6 +39,10 @@ namespace HungarianAlgorithm.Algorithms
                                                     { 1, 1, 1, 1, 1 }
                                                     };
 
+
+        public int[] Givers { get; set; }
+        public int[] Receivers { get; set; }
+        public int[,] Compatible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public HungarianAlgorithmImpl()
         {

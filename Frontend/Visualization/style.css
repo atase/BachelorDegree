@@ -29,8 +29,8 @@ body{
 .mid_container{
     height:100%;
     width: 70%;
-    display:block;
-    overflow:auto;
+    overflow-y:scroll;
+    display:flex;
 }
 
 
@@ -39,4 +39,5 @@ body{
     width: 30%;
     display:block;
     background-color:#dedede;
+    overflow:auto;
 }

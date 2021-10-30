@@ -27,5 +27,10 @@ namespace Kidney.Infrastructure.Services
 
             return true;
         }
+
+        public Giver GetInformations(int id)
+        {
+            return _giverRepository.GetById(id).Result;
+        }
     }
 }

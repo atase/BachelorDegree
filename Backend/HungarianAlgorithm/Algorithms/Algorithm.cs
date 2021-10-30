@@ -4,8 +4,9 @@ using System.Text;
 
 namespace HungarianAlgorithm.Algorithms
 {
-    interface Algorithm
+    public interface Algorithm
     {
+        public int[,] Compatible { get; set; }
         void Start();
     }
 }

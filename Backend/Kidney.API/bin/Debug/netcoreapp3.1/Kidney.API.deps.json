@@ -1397,6 +1397,17 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "HungarianAlgorithm/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11"
+        },
+        "runtime": {
+          "HungarianAlgorithm.dll": {}
+        },
+        "compile": {
+          "HungarianAlgorithm.dll": {}
+        }
+      },
       "Kidney.Core/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11"
@@ -1410,6 +1421,7 @@
       },
       "Kidney.Infrastructure/1.0.0": {
         "dependencies": {
+          "HungarianAlgorithm": "1.0.0",
           "Kidney.Core": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11"
@@ -3727,6 +3739,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "HungarianAlgorithm/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Kidney.Core/1.0.0": {
       "type": "project",
