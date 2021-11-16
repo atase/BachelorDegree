@@ -26,7 +26,6 @@ namespace Kidney.API.Controllers
         public ActionResult MatchingResult([FromBody] AlgorithmDTO algorithmDTO)
         {
             return Ok(matchingService.Matching());
-            //return Ok("123");
         }
 
     }

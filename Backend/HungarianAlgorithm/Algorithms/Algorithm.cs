@@ -6,7 +6,12 @@ namespace HungarianAlgorithm.Algorithms
 {
     public interface Algorithm
     {
-        public int[,] Compatible { get; set; }
-        void Start();
+        
+        int[,] Compatible { get; set; }
+       
+        int MatchingSize { get; set; }
+        int GiversNo { get; set; }
+        int ReceiversNo { get; set; }
+        void Compute();
     }
 }

@@ -78,9 +78,12 @@ namespace Kidney.Infrastructure.Services
             data.TElements = giverDTOs;
             data.UElements = receiverDTOs;
 
-           /* Algorithm algorithm = new HungarianAlgorithmImpl();
+           Algorithm algorithm = new HungarianAlgorithmImpl();
 
             algorithm.Compatible = new int[givers.Count, receivers.Count];
+            algorithm.MatchingSize = givers.Count;
+            algorithm.GiversNo = givers.Count;
+            algorithm.ReceiversNo = receivers.Count;
 
             int i = 0, j = 0;
 
@@ -94,7 +97,10 @@ namespace Kidney.Infrastructure.Services
                 }
                 i++;
                 j = 0;
-            }*/
+            }
+
+
+            algorithm.Compute();
 
             return data;
         }

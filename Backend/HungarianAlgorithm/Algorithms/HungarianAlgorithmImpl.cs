@@ -11,38 +11,28 @@ namespace HungarianAlgorithm.Algorithms
     {
 
         private int optimalMatchingWeight;
-
-        private const int rowNo = 5;
-        private const int colNo = 5;
-
-        private const int n = 5;
         private int maxMatch;
 
-        private int[] donorsLabels = Enumerable.Repeat(0, n).ToArray();
-        private int[] receiversLabels = Enumerable.Repeat(0, n).ToArray();
+        private int[] giversLabels;
+        private int[] receiversLabels;
         private int[] prev;
-        private int[] donorReceiver;
+        private int[] giverReceiver;
         private int[] receiverDonor;
-        private int[] slack = new int[n];
-        private int[] slackX = new int[n];
+        private int[] slack;
+        private int[] slackX;
 
         private bool[] S;
         private bool[] T;
 
-        private int[,] weight = new int[5, 5];
-        private int[] donors = new int[] { 1, 2, 3, 4, 5 };
-        private int[] receivers = new int[] { 1, 2, 3, 4, 5 };
-        private int[,] compatible = new int[5, 5] { { 1, 1, 1, 1, 1 },
-                                                    { 1, 1, 1, 1, 1 },
-                                                    { 1, 1, 1, 1, 1 },
-                                                    { 1, 1, 1, 1, 1 },
-                                                    { 1, 1, 1, 1, 1 }
-                                                    };
+        private int[,] weight;
 
 
         public int[] Givers { get; set; }
         public int[] Receivers { get; set; }
-        public int[,] Compatible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int[,] Compatible { get; set; }
+        public int MatchingSize { get; set; }
+        public int GiversNo { get; set; }
+        public int ReceiversNo { get; set; }
 
         public HungarianAlgorithmImpl()
         {
@@ -51,21 +41,21 @@ namespace HungarianAlgorithm.Algorithms
 
         private void Augment() 
         {
-            if (maxMatch == n)
+            if (maxMatch == MatchingSize)
             {
                 return;
             }
 
-            int root = 0, donnor = 0, receiver = 0;
+            int root = 0, giver = 0, receiver = 0;
             Queue q = new Queue();
 
-            S = Enumerable.Repeat(false, n).ToArray();
-            T = Enumerable.Repeat(false, n).ToArray();
-            prev = Enumerable.Repeat(-1, n).ToArray();
+            S = Enumerable.Repeat(false, MatchingSize).ToArray();
+            T = Enumerable.Repeat(false, MatchingSize).ToArray();
+            prev = Enumerable.Repeat(-1, MatchingSize).ToArray();
 
-            for (int i = 0; i < n; i++) 
+            for (int i = 0; i < MatchingSize; i++) 
             {
-                if (donorReceiver[i] == -1) 
+                if (giverReceiver[i] == -1) 
                 {
                     root = i;
                     q.Enqueue(root);
@@ -75,9 +65,9 @@ namespace HungarianAlgorithm.Algorithms
                 }
             }
 
-            for (int j = 0; j < n; j++)
+            for (int j = 0; j < MatchingSize; j++)
             {
-                slack[j] = donorsLabels[root] + receiversLabels[j] - weight[root, j];
+                slack[j] = giversLabels[root] + receiversLabels[j] - weight[root, j];
                 slackX[j] = root;
             }
 
@@ -85,33 +75,33 @@ namespace HungarianAlgorithm.Algorithms
             {
                 while (q.Count != 0)
                 {
-                    donnor = (int)q.Dequeue();
-                    for (receiver = 0; receiver < n; receiver++)
+                    giver = (int)q.Dequeue();
+                    for (receiver = 0; receiver < MatchingSize; receiver++)
                     {
-                        if (weight[donnor, receiver] == donorsLabels[donnor] + receiversLabels[receiver] && !T[receiver])
+                        if (weight[giver, receiver] == giversLabels[giver] + receiversLabels[receiver] && !T[receiver])
                         {
                             if (receiverDonor[receiver] == -1) break;
                             T[receiver] = true;
                             q.Enqueue(receiverDonor[receiver]);
-                            AddToTree(receiverDonor[receiver], donnor);
+                            AddToTree(receiverDonor[receiver], giver);
                         }
                     }
 
-                    if (receiver < n) break;
+                    if (receiver < MatchingSize) break;
                 }
 
-                if (receiver < n) break;
+                if (receiver < MatchingSize) break;
 
                 UpdateLabels();
 
 
-                for (receiver = 0; receiver < n; receiver++)
+                for (receiver = 0; receiver < MatchingSize; receiver++)
                 {
                     if (!T[receiver] && slack[receiver] == 0)
                     {
                         if (receiverDonor[receiver] == -1)
                         {
-                            donnor = slackX[receiver];
+                            giver = slackX[receiver];
                             break;
                         }
                         else
@@ -125,17 +115,17 @@ namespace HungarianAlgorithm.Algorithms
                         }
                     }
                 }
-                if (receiver < n) break;
+                if (receiver < MatchingSize) break;
             }
 
-            if (receiver < n)
+            if (receiver < MatchingSize)
             {
                 maxMatch++;
-                for (int cDonnor = donnor, cReceiver = receiver, temp; cDonnor != -2; cDonnor = prev[cDonnor], cReceiver = temp)
+                for (int cGiver = giver, cReceiver = receiver, temp; cGiver != -2; cGiver = prev[cGiver], cReceiver = temp)
                 {
-                    temp = donorReceiver[cDonnor];
-                    receiverDonor[cReceiver] = cDonnor;
-                    donorReceiver[cDonnor] = cReceiver;
+                    temp = giverReceiver[cGiver];
+                    receiverDonor[cReceiver] = cGiver;
+                    giverReceiver[cGiver] = cReceiver;
                 }
                 Augment();
             }
@@ -145,7 +135,7 @@ namespace HungarianAlgorithm.Algorithms
         private void UpdateLabels() 
         {
             int delta = int.MaxValue;
-            for (int j = 0; j < n; j++)
+            for (int j = 0; j < MatchingSize; j++)
             {
                 if (!T[j])
                 {
@@ -154,15 +144,15 @@ namespace HungarianAlgorithm.Algorithms
             }
 
 
-            for(int i=0;i<n;i++)
+            for(int i=0;i<MatchingSize;i++)
             {
                 if (S[i])
                 {
-                    donorsLabels[i] -= delta;
+                    giversLabels[i] -= delta;
                 }
             }
 
-            for (int j = 0; j < n; j++)
+            for (int j = 0; j < MatchingSize; j++)
             {
                 if (T[j])
                 {
@@ -170,7 +160,7 @@ namespace HungarianAlgorithm.Algorithms
                 }
             }
 
-            for (int j = 0; j < n; j++)
+            for (int j = 0; j < MatchingSize; j++)
             {
                 if (!T[j])
                 {
@@ -181,50 +171,50 @@ namespace HungarianAlgorithm.Algorithms
         }
 
 
-        private void AddToTree(int donnor, int prevDonnor)
+        private void AddToTree(int giver, int prevDonnor)
         {
-            S[donnor] = true;
-            prev[donnor] = prevDonnor;
-            for (int receiver = 0; receiver < n; receiver++)
+            S[giver] = true;
+            prev[giver] = prevDonnor;
+            for (int receiver = 0; receiver < MatchingSize; receiver++)
             {
-                int result = donorsLabels[receiver] + receiversLabels[receiver] - weight[donnor, receiver];
+                int result = giversLabels[receiver] + receiversLabels[receiver] - weight[giver, receiver];
                 if ( result < slack[receiver])
                 {
                     slack[receiver] = result;
-                    slackX[receiver] = donnor;
+                    slackX[receiver] = giver;
                 }
             }
         }
 
         private void InitializeWeight()
         {
-            for (int i = 0; i < rowNo; i++) 
+            for (int i = 0; i < GiversNo; i++) 
             {
-                for (int j = 0; j < colNo; j++)
+                for (int j = 0; j < ReceiversNo; j++)
                 {
-                    if (compatible[i, j] == 1)
+                    if (Compatible[i, j] == 1)
                     {
                         weight[i, j] = i + j;
                     }
 
-                    donorsLabels[i] = Math.Max(donorsLabels[i], weight[i, j]);
+                    giversLabels[i] = Math.Max(giversLabels[i], weight[i, j]);
                 }
             }
 
-            donorReceiver = Enumerable.Repeat(-1, n).ToArray();
-            receiverDonor = Enumerable.Repeat(-1, n).ToArray();
+            giverReceiver = Enumerable.Repeat(-1, ReceiversNo).ToArray();
+            receiverDonor = Enumerable.Repeat(-1, GiversNo).ToArray();
 
 
-            
+
         }
 
         private void WriteCompatibleAssigment()
         {
-            for (int i = 0; i < rowNo; i++)
+            for (int i = 0; i < GiversNo; i++)
             {
-                for (int j = 0; j < colNo; j++) 
+                for (int j = 0; j < ReceiversNo; j++) 
                 {
-                    Console.Write(compatible[i, j] + " ");
+                    Console.Write(i + " " + j + " => " +  Compatible[i, j] + " ");
                 }
                 Console.Write("\n");
 
@@ -233,9 +223,9 @@ namespace HungarianAlgorithm.Algorithms
 
         private void WriteWeight()
         {
-            for (int i = 0; i < rowNo; i++)
+            for (int i = 0; i < GiversNo; i++)
             {
-                for (int j = 0; j < colNo; j++)
+                for (int j = 0; j < ReceiversNo; j++)
                 {
                     Console.Write(weight[i, j] + " ");
                 }
@@ -243,26 +233,35 @@ namespace HungarianAlgorithm.Algorithms
             }
         }
 
-        public void Start()
+        public void Compute()
         {
             optimalMatchingWeight = 0;
             maxMatch = 0;
-            donorReceiver = Enumerable.Repeat(-1, n).ToArray();
-            receiverDonor = Enumerable.Repeat(-1, n).ToArray();
+            giversLabels = Enumerable.Repeat(0, GiversNo).ToArray();
+            receiversLabels = Enumerable.Repeat(0, ReceiversNo).ToArray();
+            weight = new int[GiversNo, ReceiversNo];
+
+            slack = new int[MatchingSize];
+            slackX = new int[MatchingSize];
+
+
+
+            WriteCompatibleAssigment();
+
 
             InitializeWeight();
             Augment();
 
-            for (int donor = 0; donor < n; donor++)
+            for (int giver = 0; giver < GiversNo; giver++)
             {
-                optimalMatchingWeight += weight[donor, donorReceiver[donor]];
+                optimalMatchingWeight += weight[giver, giverReceiver[giver]];
             }
 
             Console.WriteLine(optimalMatchingWeight);
 
 
-            WriteWeight();
-            WriteCompatibleAssigment();
+           // WriteWeight();
+           // WriteCompatibleAssigment();
         }
     }
 }
