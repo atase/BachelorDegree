@@ -1,10 +1,13 @@
 
-using Kidney.Core.Repositories;
-using Kidney.Core.Services;
-using Kidney.Infrastructure.Data;
+using AutoMapper;
+using Business.Mapping;
+using DataAccess.Interfaces;
+using DataAccess.Repositories;
+using Kidney.Business.Services;
+using Kidney.DataAccess.DataContexts;
+using Kidney.DataAccess.Interfaces;
 using Kidney.Infrastructure.Repositories;
 using Kidney.Infrastructure.Repositories.Base;
-using Kidney.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +29,7 @@ namespace Transplant.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(DataMapper));
             services.AddCors(o => o.AddDefaultPolicy(builder =>
             {
                 builder.AllowAnyOrigin()
@@ -48,6 +52,9 @@ namespace Transplant.API
             services.AddTransient<IReceiverService, ReceiverService>();
 
             services.AddTransient<IMatchingService, MatchingService>();
+
+            services.AddTransient<IPrimaryDiagnosisRepository, PrimaryDiagnosisRepository>();
+            services.AddTransient<IRaceRepository, RaceRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -57,7 +64,7 @@ namespace Transplant.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseCors();

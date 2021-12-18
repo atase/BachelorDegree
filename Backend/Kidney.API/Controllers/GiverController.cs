@@ -1,11 +1,7 @@
-﻿using Kidney.Core.DTOs;
-using Kidney.Core.Entities;
-using Kidney.Core.Services;
-using Microsoft.AspNetCore.Http;
+﻿using Kidney.Business.Models;
+using Kidney.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Kidney.API.Controllers
@@ -22,21 +18,34 @@ namespace Kidney.API.Controllers
 
         [HttpPost]
         [Route("register")]
-        public ActionResult Register([FromBody] Giver giver)
+        public async Task<IActionResult> Register([FromBody] Giver giver)
         {
-            if (!_giverService.Register(giver))
+            try
             {
-                return BadRequest(giver);
+                var result = await _giverService.Register(giver);
+                return Ok(result);
+            }
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
             }
 
-            return Ok(giver);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("info")]
-        public ActionResult GiverInformation([FromBody] GiverDTO giverDTO)
+        public async Task<IActionResult> GiverInformation([FromQuery] int id)
         {
-            return Ok(_giverService.GetInformations(giverDTO.Id));
+            try 
+            { 
+                var result = await _giverService.GetInformations(id);
+                return Ok(result);
+            }
+            catch(Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
+             
         }
 
     }

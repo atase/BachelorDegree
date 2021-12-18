@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj": {}
+    "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj": {
+    "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj",
+        "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj",
         "projectName": "Kidney.Core",
-        "projectPath": "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj",
-        "packagesPath": "C:\\Users\\tase2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Core\\obj\\",
+        "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj",
+        "packagesPath": "C:\\Users\\pnastasa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tase2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pnastasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -66,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

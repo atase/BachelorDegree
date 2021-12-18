@@ -1,10 +1,7 @@
-﻿using Kidney.Core.DTOs;
-using Kidney.Core.Entities;
-using Kidney.Core.Services;
+﻿using Kidney.Business.Models;
+using Kidney.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Kidney.API.Controllers
@@ -20,20 +17,31 @@ namespace Kidney.API.Controllers
         }
         [HttpPost]
         [Route("register")]
-        public ActionResult Register([FromBody] Receiver receiver)
+        public async Task<IActionResult> Register([FromBody] Receiver receiver)
         {
-            if (!_receiverService.Register(receiver))
+            try
             {
-                return BadRequest(receiver);
+                var result = await _receiverService.Register(receiver);
+                return Ok(result);
             }
-
-            return Ok(receiver);
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
         }
-        [HttpPost]
+        [HttpGet]
         [Route("info")]
-        public ActionResult ReceiverInformations([FromBody] ReceiverDTO receiverDTO)
+        public async Task<IActionResult> ReceiverInformations([FromQuery] int id)
         {
-            return Ok(_receiverService.GetInformations(receiverDTO.Id));
+            try
+            {
+                var result = await _receiverService.GetInformations(id);
+                return Ok(result);
+            }
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
         }
     }
 }

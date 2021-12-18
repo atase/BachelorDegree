@@ -1533,19 +1533,6 @@
         "runtime": {
           "bin/placeholder/HungarianAlgorithm.dll": {}
         }
-      },
-      "Kidney.Core/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11"
-        },
-        "compile": {
-          "bin/placeholder/Kidney.Core.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Kidney.Core.dll": {}
-        }
       }
     }
   },
@@ -5819,36 +5806,30 @@
       "type": "project",
       "path": "../HungarianAlgorithm/HungarianAlgorithm.csproj",
       "msbuildProject": "../HungarianAlgorithm/HungarianAlgorithm.csproj"
-    },
-    "Kidney.Core/1.0.0": {
-      "type": "project",
-      "path": "../Kidney.Core/Kidney.Core.csproj",
-      "msbuildProject": "../Kidney.Core/Kidney.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "HungarianAlgorithm >= 1.0.0",
-      "Kidney.Core >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.11"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tase2\\.nuget\\packages\\": {}
+    "C:\\Users\\pnastasa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Infrastructure\\Kidney.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.Infrastructure\\Kidney.Infrastructure.csproj",
       "projectName": "Kidney.Infrastructure",
-      "projectPath": "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Infrastructure\\Kidney.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\tase2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.Infrastructure\\Kidney.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\pnastasa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tase2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pnastasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5862,11 +5843,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj": {
-              "projectPath": "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj"
-            },
-            "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj": {
-              "projectPath": "C:\\Users\\tase2\\Desktop\\Bachelor\\BachelorDegree\\Backend\\Kidney.Core\\Kidney.Core.csproj"
+            "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj": {
+              "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj"
             }
           }
         }
@@ -5911,7 +5889,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

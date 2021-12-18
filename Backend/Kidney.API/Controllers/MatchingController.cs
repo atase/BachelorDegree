@@ -1,10 +1,5 @@
-﻿using Kidney.Core.DTOs;
-using Kidney.Core.Services;
+﻿using Kidney.Business.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Kidney.API.Controllers
 {
@@ -12,21 +7,13 @@ namespace Kidney.API.Controllers
     [ApiController]
     public class MatchingController : ControllerBase
     {
-        IMatchingService matchingService;
+        IMatchingService _matchingService;
         
 
-        public MatchingController(IMatchingService _matchingService)
+        public MatchingController(IMatchingService matchingService)
         {
-            matchingService = _matchingService;
+            _matchingService = matchingService;
             
         }
-
-        [HttpPost]
-        [Route("result")]
-        public ActionResult MatchingResult([FromBody] AlgorithmDTO algorithmDTO)
-        {
-            return Ok(matchingService.Matching());
-        }
-
     }
 }

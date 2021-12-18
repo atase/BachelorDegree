@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kidney.Core.DTOs
+namespace Kidney.DataAccess.DTOs
 {
     public class GiverDTO
     {

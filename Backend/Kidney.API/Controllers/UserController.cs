@@ -1,7 +1,8 @@
-﻿using Kidney.Core.Entities;
-using Kidney.Infrastructure.Services;
+﻿using Kidney.Business.Models;
+using Kidney.Business.Services;
 using Microsoft.AspNetCore.Mvc;
-
+using System;
+using System.Threading.Tasks;
 
 namespace Kidney.API.Controllers
 {
@@ -17,14 +18,17 @@ namespace Kidney.API.Controllers
 
         [HttpPost]
         [Route("register")]
-        public ActionResult Register([FromBody] User user)
+        public async Task<IActionResult> Register([FromBody] User user)
         {
-            if (!_userService.Register(user))
+            try
             {
-                return BadRequest(user);
+                var result = await _userService.Register(user);
+                return Ok(user);
             }
-
-            return Ok(user);
+            catch(Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
         }
     }
 }
