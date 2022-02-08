@@ -1,26 +1,140 @@
 ﻿
-using HungarianAlgorithm.Algorithms;
+using AutoMapper;
+using Business.Algorithms;
+using Business.Models;
+using DataAccess.Interfaces;
 using Kidney.Business.Models;
-using Kidney.DataAccess.DTOs;
 using Kidney.DataAccess.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Kidney.Business.Services
 {
     public class MatchingService : IMatchingService
     {
-        IReceiverRepository receiverRepository;
-        IGiverRepository giverRepository;
+        IReceiverRepository _receiverRepository;
+        IGiverRepository _giverRepository;
+        ICompatibilityScoreRepository _compatibilityScoreRepository;
+        IMapper _mapper;
 
+        private Dictionary<int, Giver> giversDict = new Dictionary<int, Giver>();
+        private Dictionary<int, Receiver> receiversDict = new Dictionary<int, Receiver>();
 
-        public MatchingService(IGiverRepository _giverRepository, IReceiverRepository _receiverRepository) 
+        public MatchingService(IReceiverRepository receiverRepository, IGiverRepository giverRepository, ICompatibilityScoreRepository compatibilityScoreRepository, IMapper mapper)
         {
-            giverRepository = _giverRepository;
-            receiverRepository = _receiverRepository;
+            _receiverRepository = receiverRepository;
+            _giverRepository = giverRepository;
+            _compatibilityScoreRepository = compatibilityScoreRepository;
+            _mapper = mapper;
         }
 
-        public bool Compatible(Giver giver, Receiver receiver)
+        public async Task<Matching> MaximalMatchingGiversToReceivers(int var, Compatibility<Giver, Receiver> compatibilities)
+        {
+            Matching matching = new Matching();
+
+            var matrix = BuildMatrix(compatibilities);
+
+            HungarianAlgorithm algorithm = new HungarianAlgorithm(matrix, Math.Max(giversDict.Count, receiversDict.Count));
+            
+            matching.MatchingValue = algorithm.Compute();
+
+            List<Pair<Pair<Giver, Receiver>, int>> optimalAssigment = new List<Pair<Pair<Giver, Receiver>, int>>();
+
+            var matchingResult = algorithm.GetMatchingAssigments();
+            Giver giver;
+            Receiver receiver;
+            foreach (var item in matchingResult.Keys)
+            {
+                giversDict.TryGetValue(item.First, out giver);
+                receiversDict.TryGetValue(item.Second, out receiver);
+                int score = -1;
+                matchingResult.TryGetValue(item, out score);
+
+
+
+                optimalAssigment.Add(new Pair<Pair<Giver, Receiver>, int>
+                {
+                    First = new Pair<Giver, Receiver>
+                    {
+                        First = giver,
+                        Second = receiver
+                    },
+                    Second = score != -1 ? score : 0
+                });
+            }
+
+            matching.OptimalAssigment = optimalAssigment;
+
+
+            return matching;
+        }
+
+        private int[,] BuildMatrix(Compatibility<Giver, Receiver> compatibilities)
+        {
+
+            int i = 0;
+            int j = 0;
+            
+            
+
+            foreach (var obj in compatibilities.CompatibilityScores)
+            {
+                if (!giversDict.ContainsValue(obj.First.First))
+                {
+                    giversDict.Add(i, obj.First.First);
+                    i++;
+                }
+
+                if (!receiversDict.ContainsValue(obj.First.Second))
+                {
+                    receiversDict.Add(j, obj.First.Second);
+                    j++;
+                }
+            }
+            giversDict.OrderBy(key => key.Value);
+            receiversDict.OrderBy(key => key.Value);
+            int n = Math.Max(giversDict.Count, receiversDict.Count);
+            int[,] matrix = new int[n, n];
+
+            foreach (var p in compatibilities.CompatibilityScores)
+            {
+                var giverKey = giversDict.First(x => x.Value.Equals(p.First.First)).Key;
+                var receiverKey = receiversDict.First(x => x.Value.Equals(p.First.Second)).Key;
+                matrix[giverKey, receiverKey] = p.Second;
+            }
+
+            /*foreach (var g in compatibilities.CompatiblePairs)
+            {
+                var giverKey = giversDict.First(x => x.Value.Equals(g.First)).Key;
+
+                foreach (var r in g.Second)
+                {
+                    var receiverKey = receiversDict.First(x => x.Value.Equals(r)).Key;
+                    matrix[giverKey, receiverKey] = rand.Next(1, 11);
+                }
+            }*/
+
+            for (i = 0; i < n; i++)
+            {
+                
+                for (j = 0; j < n; j++)
+                {
+                    Console.Write(matrix[i, j] + " ");
+                }
+                Console.Write("\n");
+            }
+
+            return matrix;
+        }
+
+        private void HungarianAlgorithmVariant1() 
+        {
+            
+        }
+
+        /*public Task<Matching<Receiver, Giver>> MaximalMatchingReceiversToGivers(int var)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
 ﻿
+using DataAccess.Entities;
 using DataAccess.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,8 +17,8 @@ namespace Kidney.DataAccess.Entities
         public string Country { get; set; }
         public string City { get; set; }
         public int Age { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
+        public int? ContactInformationsId { get; set; }
+        public ContactInformations ContactInformations { get; set; }
         public SEX Sex{ get; set; }
         public int? RaceId { get; set; }
         public Race Race { get; set; }

@@ -1,9 +1,8 @@
 ﻿
+using DataAccess.Entities;
 using DataAccess.EntityMaps;
 using Kidney.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Kidney.DataAccess.DataContexts
 {
@@ -13,7 +12,10 @@ namespace Kidney.DataAccess.DataContexts
         public DbSet<Giver> Givers { get; set; }
         public DbSet<Race> Races { get; set; }
         public DbSet<PrimaryDiagnosis> PrimaryDiagnoses { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<ContactInformations> ContactInformations { get; set; }
+        public DbSet<CompatibilityScore> CompatibilityScores { get; set; }
+
+
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +24,8 @@ namespace Kidney.DataAccess.DataContexts
             GiverMap.Map(modelBuilder);
             PrimaryDiagnosisMap.Map(modelBuilder);
             RaceMap.Map(modelBuilder);
+            ContactInformationsMap.Map(modelBuilder);
+            CompatibilityScoreMap.Map(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }
     }

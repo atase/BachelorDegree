@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ILVTLkjYI2ZDgM7b7GrYAXs6828HVTPLrqfo1jOAXgdn/8i1Y4XMH0QYairSlc9L2jcjjxgayW26beQrfKRSFQ==",
+  "dgSpecHash": "FIiYBWqif5V8NqYImttlVMzAATlQoNOaHb1p6zZX4luv5qDJ2eCzAUD1Uy8AnOBKdypKONEAtA5+l8f4edJJAg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj",
+  "projectFilePath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pnastasa\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\pnastasa\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

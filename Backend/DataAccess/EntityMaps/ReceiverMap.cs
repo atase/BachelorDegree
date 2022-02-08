@@ -20,20 +20,23 @@ namespace DataAccess.EntityMaps
                 entity.Property(x => x.Country).HasColumnName("COUNTRY");
                 entity.Property(x => x.City).HasColumnName("CITY");
                 entity.Property(x => x.Age).HasColumnName("AGE");
-                entity.Property(x => x.Email).HasColumnName("EMAIL");
-                entity.Property(x => x.PhoneNumber).HasColumnName("PHONE_NUMBER");
+                entity.Property(x => x.ContactInformationsId).HasColumnName("CONTACT_INFORMATIONS_ID");
                 entity.Property(x => x.RaceId).HasColumnName("RACE_ID");
                 entity.Property(x => x.Sex).HasColumnName("SEX");
                 entity.Property(x => x.BloodType).HasColumnName("BLOOD_TYPE");
                 entity.Property(x => x.PrimaryDiagnosisId).HasColumnName("PRIMARY_DIAGNOSIS_ID");
 
                 entity.HasOne(x => x.Race)
-                    .WithMany(y => y.Receivers)
-                    .HasForeignKey(y => y.RaceId);
+                    .WithMany()
+                    .HasForeignKey(x => x.RaceId);
+
+                entity.HasOne(x => x.ContactInformations)
+                    .WithMany()
+                    .HasForeignKey(x => x.ContactInformationsId);
 
                 entity.HasOne(x => x.PrimaryDiagnosis)
-                   .WithMany(y => y.Receivers)
-                   .HasForeignKey(y => y.PrimaryDiagnosisId);
+                   .WithMany()
+                   .HasForeignKey(x => x.PrimaryDiagnosisId);
 
             });
         }

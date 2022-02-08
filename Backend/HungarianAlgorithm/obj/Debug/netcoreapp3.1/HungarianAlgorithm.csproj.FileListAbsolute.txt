@@ -81,3 +81,14 @@ C:\Users\pnastasa\Desktop\BD\BachelorDegree\Backend\HungarianAlgorithm\obj\Debug
 C:\Users\pnastasa\Desktop\BD\BachelorDegree\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.csproj.CoreCompileInputs.cache
 C:\Users\pnastasa\Desktop\BD\BachelorDegree\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.dll
 C:\Users\pnastasa\Desktop\BD\BachelorDegree\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.pdb
+C:\Users\pnastasa\Desktop\BD\BachelorDegree\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.csproj.AssemblyReference.cache
+C:\Users\pnastasa\Desktop\repos\Backend\HungarianAlgorithm\bin\Debug\netcoreapp3.1\HungarianAlgorithm.deps.json
+C:\Users\pnastasa\Desktop\repos\Backend\HungarianAlgorithm\bin\Debug\netcoreapp3.1\HungarianAlgorithm.dll
+C:\Users\pnastasa\Desktop\repos\Backend\HungarianAlgorithm\bin\Debug\netcoreapp3.1\HungarianAlgorithm.pdb
+C:\Users\pnastasa\Desktop\repos\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.csproj.AssemblyReference.cache
+C:\Users\pnastasa\Desktop\repos\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pnastasa\Desktop\repos\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.AssemblyInfoInputs.cache
+C:\Users\pnastasa\Desktop\repos\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.AssemblyInfo.cs
+C:\Users\pnastasa\Desktop\repos\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.csproj.CoreCompileInputs.cache
+C:\Users\pnastasa\Desktop\repos\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.dll
+C:\Users\pnastasa\Desktop\repos\Backend\HungarianAlgorithm\obj\Debug\netcoreapp3.1\HungarianAlgorithm.pdb

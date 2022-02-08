@@ -12,8 +12,8 @@ namespace Kidney.DataAccess.DTOs
         }
         public CompatiblePairDTO(T first, U second)
         {
-            this.First = first;
-            this.Second = second;
+            First = first;
+            Second = second;
         }
     }
 }

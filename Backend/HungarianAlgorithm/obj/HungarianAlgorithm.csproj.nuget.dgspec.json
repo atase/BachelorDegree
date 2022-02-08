@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj": {}
+    "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj": {
+    "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj",
+        "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj",
         "projectName": "HungarianAlgorithm",
-        "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj",
+        "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj",
         "packagesPath": "C:\\Users\\pnastasa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\obj\\",
+        "outputPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\HungarianAlgorithm\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pnastasa\\AppData\\Roaming\\NuGet\\NuGet.Config",

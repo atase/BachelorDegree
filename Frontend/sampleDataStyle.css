@@ -1,0 +1,481 @@
+.sample_data_filters_container_left{
+    height:100%;
+    width:30%;
+    float:right;
+    background-color:white;
+    border-left: 2px solid black;
+    position:fixed;
+    right: 0%;
+    top:0%;
+    transition-duration: 0.4s;
+}
+
+.sdfilters_container{
+    margin-top:10%;
+    height:70%;
+    width:100%;
+    margin-bottom: 7%;
+    background-color:white;
+}
+
+.sdfilters_container input{
+    width:80%;
+    margin-left: 10%;
+    height: 35px;
+    margin-top: 15px;
+    background-color:white;
+    text-decoration: none;
+    border:none;
+    color:black;
+    outline: none;
+    border-bottom: 2px solid rgb(0, 119, 255);
+    transition-duration: 0.4s;
+}
+
+.sdfilters_container input::placeholder{
+    
+}
+
+.sdfilters_container input:focus{
+    border-bottom: 2.3px solid rgb(0, 218, 73);
+}
+
+.filter_container_bottom{
+    display:block;
+    position:absolute;
+    height:45px;
+    width:40%;
+    margin-left: 30%;
+    text-align: center;
+    background-color: rgb(0, 119, 255);
+    color: white;
+    transition-duration: 0.5s;
+    cursor:pointer;
+}
+
+.filter_container_bottom p{
+    cursor: pointer;
+}
+
+.filter_container_bottom:hover{
+    background-color: rgb(0, 91, 196);
+    color: white;
+}
+
+.filter_container_top{
+    width:100%;
+    height: 5%;
+}
+
+.filter_container_top i{
+    margin-top:2%;
+    font-size: 25px;
+    float:left;
+    margin-left: 17px;
+    cursor:pointer;
+    color:rgb(0, 119, 255);
+    transition-duration: 0.4s;
+}
+
+.filter_container_top i:hover{
+    color:rgb(0, 91, 196);
+}
+
+
+#sample_data_container{
+    width:100%;
+}
+
+.sample_data_display{
+    width: 100%;
+}
+
+.sample_data_container_functionality{
+    height:97%;
+    width:4%;
+    background-color: rgb(0, 91, 196);
+    text-align: center;
+    position:fixed;
+    left: 95.5%;
+    display:block;
+}
+
+.sample_data_container_functionality i{
+    font-size: 30px;
+    color: rgb(0, 218, 73);
+    transition-duration: 0.4s;
+    cursor:pointer;
+    display:block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-left: 3px solid rgb(0, 218, 73);
+}
+
+.sample_data_container_functionality i:hover{
+    color: rgb(0, 119, 255);
+    background-color:white !important;
+}
+
+.sample_data_table{
+    width:100%;
+}
+
+.sample_data_table th{
+    border-bottom: 1.5px solid rgb(0, 119, 255);
+    height: 100% !important;
+}
+
+.sample_data_table td{
+    text-align:center;
+}
+
+.active_tab{
+    background-color:white;
+}
+
+#sd_pd_id{
+    height: 50px !important;
+    text-align: center !important;
+    margin-top: 30px;
+    vertical-align: center !important;
+}
+
+
+
+.add_giver_button{
+    display:flexbox;
+    width:100%;
+    cursor:pointer;
+    transition-duration: 0.4s;
+}
+
+
+.add_sample_data_background_effect_container{
+    position:absolute;
+    width: 100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.8);
+    display:none;
+}
+
+.add_sample_data_forms{
+    display:none;
+}
+
+.add_sample_data_general_container{
+    position:absolute;
+    left:15%;
+    right:15%;
+    top:3%;
+    bottom:3%;
+    background-color:white;
+}
+
+.add_sample_data_options{
+    width:90%;
+    height: 10%;
+    display:inline-block;
+    float:left;
+}
+
+.add_sample_data_options ul{
+    list-style-type: none;
+    width:100%;
+    height:100%;
+    background-color: rgb(0, 119, 255);
+    margin:0;
+    padding:0;
+    display: flex;
+    flex-direction: row;
+}
+.add_sample_data_options ul li{
+    display:inline;
+    height:100%;
+    background-color: rgb(0, 91, 196);
+    margin: 0;
+    padding: 0px 40px 0px 40px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    color:white;
+    border-left: 3px solid rgb(0, 218, 73);
+}
+
+.add_sample_active_option{
+    background-color: white !important;
+    color: rgb(0, 91, 196) !important;
+}
+
+
+.add_sample_data_options ul li:hover{
+    background-color: white;
+    color: rgb(0, 91, 196);
+}
+
+.add_sample_data_options ul li p{
+    display:inline;
+    margin:0;
+    cursor: pointer;
+    position:relative;
+    top:15%; 
+    left:0%;right:0%;
+    bottom:0%;  
+}
+
+
+
+.add_sample_data_close_container{
+    width: 10%;
+    height:5%;
+    float:right;
+    background-color: rgb(0, 119, 255);
+}
+
+.add_sample_data_close_container i{
+    cursor:pointer;
+    position: relative;
+    left: 65%;
+    font-size:30px;
+    color: rgb(0, 91, 196);
+    transition-duration: 0.4s;
+}
+
+.add_sample_data_close_container i:hover{
+    color:white;
+}
+
+.add_sample_data_forms{
+    position: absolute;
+    width:100%;
+    height: 90%;
+    background-color:white;
+    display: block;
+    top:5%;
+}
+
+.sdc_data_container{
+    display:none;
+}
+
+.generate_sample_data_container{
+    display:none;
+}
+
+.background_effect_sd_operations{
+    position:absolute;
+    top:0%;
+    bottom: 0%;
+    left:0%;
+    right: 0%;
+    background-color: rgba(0,0,0,0.7);
+    display:none;
+}
+
+.sd_operations_container{
+    position:absolute;
+    top:5%;
+    bottom:5%;
+    left: 10%;
+    right:10%;
+    background-color: white;
+
+}
+
+.sd_operations_container i{
+    font-size: 30px;
+    cursor:pointer;
+    float:right;
+    margin-right: 15px;
+    margin-top: 15px;
+    color: rgb(0, 119, 255);
+    transition-duration: 0.4s;;
+}
+
+.sd_operations_container i:hover{
+    color: rgb(0, 91, 196);
+}
+
+.sd_operations_actions{
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top:1.5%;
+    height: 50px;
+    bottom: 10%;
+    width:100%;
+}
+
+.sd_operations_input{
+    width: 100%;
+    position: relative; 
+    top: 0%;
+    bottom: 20%;
+    height: 80%;
+    display:flex;
+    flex-direction: row;
+}
+
+.sd_operations_info_btn i{
+    font-size: 25px;
+    color: rgb(0, 119, 255);
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.sd_operations_info_btn i:hover{
+    color:rgb(0, 91, 196);
+}
+
+
+
+.sd_operations_input .giver_input{
+    margin-bottom:20px;
+    height: 40px;
+}
+
+.sd_operations_input .receiver_input{
+    margin-bottom:20px;
+    height: 40px;
+}
+
+
+
+.sd_operations_actions .sd_operations_save{
+    background-color: rgb(0, 119, 255);
+    color:white;
+    margin-right: 15px;
+    height: 100%;
+    width: 12%;
+    text-align: center;
+    cursor:pointer;
+    transition-duration: 0.4s;;
+}
+
+.sd_operations_actions .sd_operations_save:hover{
+    background-color: rgb(0, 91, 196);
+}
+
+
+
+
+.sd_operations_actions .sd_operations_delete{
+    background-color:rgb(0, 119, 255);
+    color:white;
+    margin-left: 15px;
+    height: 100%;
+    width: 12%;
+    text-align: center;
+    cursor:pointer;
+    transition-duration: 0.4s;
+}
+
+
+.sd_operations_actions .sd_operations_delete:hover{
+    background-color: rgb(0, 91, 196);
+}
+
+/*
+    OPERATIONS ON SAMPLE DATA - CONFIRMATION CONTAINER
+
+*/
+
+.background_effect_operations_confirmations{
+    position:absolute;
+    top:0%;
+    bottom:0%;
+    left:0%;
+    right:0%;
+    background-color: rgba(0,0,0,0.8);
+    display:none;
+}
+
+
+.background_effect_operations_confirmations .operations_confirmations_container{
+    position:absolute;
+    top: 30%;
+    bottom: 30%;
+    left: 30%;
+    right: 30%;
+    display:block;
+    background-color: white;
+}
+
+.operations_confirmations_container i{
+    font-size: 25px;
+    color:rgb(0, 119, 255);
+    cursor: pointer;
+    transition-duration: 0.4s;
+    float:right;
+    margin-top: 5px;
+    margin-right: 15px;
+}
+
+.operations_confirmations_container i:hover{
+    color:rgb(0, 91, 196);
+}
+
+.operations_confirmations_container .operations_confirmations_message_container{
+    width: 100%;
+    text-align: center;
+    margin-top: 15%;
+}
+
+.operations_confirmations_message_container p{
+    font-size: 17px;
+}
+
+
+.operations_confirmations_container .operations_confirmations_container_actions{
+    position: relative;
+    width: 100%;
+    bottom: 5%;
+    height: 11%;
+    display: flex;
+    top: 20%;
+    justify-content: center;
+}
+
+.operations_confirmations_container_actions div{
+    background-color: rgb(0, 119, 255);
+    height: 100%;
+    width: 70px;
+    display: table;
+    color:white;
+    cursor: pointer;
+}
+
+.operations_confirmations_positive_btn {
+    margin-right: 10px;
+    transition-duration: 0.4s;
+}
+
+.operations_confirmations_positive_btn:hover{
+    background-color: rgb(0, 91, 196);
+}
+
+
+.operations_confirmations_positive_btn p{
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+    cursor: pointer;
+}
+
+.operations_confirmations_negative_btn{
+    margin-right: 10px;
+    transition-duration: 0.4s;
+}
+
+.operations_confirmations_negative_btn:hover{
+    background-color: rgb(0, 91, 196);
+}
+
+.operations_confirmations_negative_btn p{
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+    cursor: pointer;
+}
+
+
+

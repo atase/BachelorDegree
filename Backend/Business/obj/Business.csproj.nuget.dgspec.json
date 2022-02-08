@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Business\\Business.csproj": {}
+    "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Business\\Business.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Business\\Business.csproj": {
+    "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Business\\Business.csproj",
+        "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Business\\Business.csproj",
         "projectName": "Business",
-        "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Business\\Business.csproj",
+        "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Business\\Business.csproj",
         "packagesPath": "C:\\Users\\pnastasa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Business\\obj\\",
+        "outputPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pnastasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj"
-              },
-              "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj": {
-                "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj"
+              "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -67,18 +64,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\pnastasa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pnastasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -137,67 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj",
-        "projectName": "HungarianAlgorithm",
-        "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\HungarianAlgorithm.csproj",
-        "packagesPath": "C:\\Users\\pnastasa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\HungarianAlgorithm\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\pnastasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.11, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

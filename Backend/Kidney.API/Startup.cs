@@ -42,8 +42,6 @@ namespace Transplant.API
             services.AddDbContext<ApplicationContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("KidneyTransplant")));
 
-            services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IUserService, UserService>();
 
             services.AddTransient<IGiverRepository, GiverRepository>();
             services.AddTransient<IGiverService, GiverService>();
@@ -51,10 +49,13 @@ namespace Transplant.API
             services.AddTransient<IReceiverRepository, ReceiverRepository>();
             services.AddTransient<IReceiverService, ReceiverService>();
 
+            services.AddTransient<ICompatibilityService, CompatibilityService>();
             services.AddTransient<IMatchingService, MatchingService>();
 
             services.AddTransient<IPrimaryDiagnosisRepository, PrimaryDiagnosisRepository>();
             services.AddTransient<IRaceRepository, RaceRepository>();
+
+            services.AddTransient<ICompatibilityScoreRepository, CompatibilityScoreRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

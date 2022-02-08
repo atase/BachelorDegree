@@ -1422,8 +1422,7 @@
       "Business/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
-          "DataAccess": "1.0.0",
-          "HungarianAlgorithm": "1.0.0"
+          "DataAccess": "1.0.0"
         },
         "runtime": {
           "Business.dll": {}
@@ -1442,17 +1441,6 @@
         },
         "compile": {
           "DataAccess.dll": {}
-        }
-      },
-      "HungarianAlgorithm/1.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
-        },
-        "runtime": {
-          "HungarianAlgorithm.dll": {}
-        },
-        "compile": {
-          "HungarianAlgorithm.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -3782,11 +3770,6 @@
       "sha512": ""
     },
     "DataAccess/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "HungarianAlgorithm/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

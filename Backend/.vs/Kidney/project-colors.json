@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e094cd47-6d99-40bc-8291-4053e1c0d510": {
+      "ProjectGuid": "e094cd47-6d99-40bc-8291-4053e1c0d510",
+      "DisplayName": "DataAccess",
+      "ColorIndex": 0
+    },
+    "6b61f8ce-f7fc-4bdf-a3e7-eb2ce885ece3": {
+      "ProjectGuid": "6b61f8ce-f7fc-4bdf-a3e7-eb2ce885ece3",
+      "DisplayName": "Kidney.API",
+      "ColorIndex": 1
+    },
+    "efa64784-1226-4d1c-bd2c-a7c2b712e14e": {
+      "ProjectGuid": "efa64784-1226-4d1c-bd2c-a7c2b712e14e",
+      "DisplayName": "Business",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}

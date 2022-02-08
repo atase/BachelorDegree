@@ -1546,8 +1546,7 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
-          "DataAccess": "1.0.0",
-          "HungarianAlgorithm": "1.0.0"
+          "DataAccess": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Business.dll": {}
@@ -1568,19 +1567,6 @@
         },
         "runtime": {
           "bin/placeholder/DataAccess.dll": {}
-        }
-      },
-      "HungarianAlgorithm/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11"
-        },
-        "compile": {
-          "bin/placeholder/HungarianAlgorithm.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/HungarianAlgorithm.dll": {}
         }
       }
     }
@@ -5907,11 +5893,6 @@
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
-    },
-    "HungarianAlgorithm/1.0.0": {
-      "type": "project",
-      "path": "../HungarianAlgorithm/HungarianAlgorithm.csproj",
-      "msbuildProject": "../HungarianAlgorithm/HungarianAlgorithm.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5927,11 +5908,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.API\\Kidney.API.csproj",
+      "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Kidney.API\\Kidney.API.csproj",
       "projectName": "Kidney.API",
-      "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.API\\Kidney.API.csproj",
+      "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Kidney.API\\Kidney.API.csproj",
       "packagesPath": "C:\\Users\\pnastasa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Kidney.API\\obj\\",
+      "outputPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Kidney.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pnastasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5948,11 +5929,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Business\\Business.csproj": {
-              "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\Business\\Business.csproj"
+            "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Business\\Business.csproj"
             },
-            "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj"
             }
           }
         }
@@ -5984,6 +5965,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.22, 3.1.22]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -5992,7 +5979,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

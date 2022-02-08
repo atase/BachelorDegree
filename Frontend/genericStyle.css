@@ -1,0 +1,52 @@
+.generic_if{
+    display:block;
+    position:absolute;
+    bottom: 15%;
+    left: 5%;
+    right: 15%;
+    top:40%;
+}
+
+.generic_functionality{
+    height: 30%;
+    width: 100%;
+    position:absolute;
+    top: 0%;
+    text-align: center;
+    border-top: 2px solid white;
+    padding-top: 10px;
+}
+
+.generic_functionality p{
+    background-color: rgb(0, 91, 196);
+    padding: 10px 0px 10px 0px;
+    color:white;
+    background-color: rg;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-right: 3px solid rgb(0, 218, 73);
+}
+
+.generic_functionality p:hover{
+    background-color: white;
+    color: rgb(0, 91, 196);
+    margin-left: 3%;
+    margin-right: -3%;
+}
+
+
+
+.generic_informations{
+    position: absolute;
+    height: 55%;
+    bottom: 0%;
+    top: 45%;
+    left: 0%;
+    right: 0%;
+    border-top: 2px solid white;
+}
+
+.generic_informations p{
+    color:white;
+    margin-left: 10px;
+}

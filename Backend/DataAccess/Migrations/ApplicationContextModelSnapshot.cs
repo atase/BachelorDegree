@@ -19,6 +19,55 @@ namespace DataAccess.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("DataAccess.Entities.CompatibilityScore", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("GiverId")
+                        .HasColumnType("int")
+                        .HasColumnName("GIVER_ID");
+
+                    b.Property<int>("ReceiverId")
+                        .HasColumnType("int")
+                        .HasColumnName("RECEIVER_ID");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int")
+                        .HasColumnName("SCORE");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GiverId");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.ToTable("COMPATIBILITIES_SCORES");
+                });
+
+            modelBuilder.Entity("DataAccess.Entities.ContactInformations", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("EMAIL");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("PHONE_NUMBER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CONTACT_INFORMATIONS");
+                });
+
             modelBuilder.Entity("Kidney.DataAccess.Entities.Giver", b =>
                 {
                     b.Property<int>("Id")
@@ -39,13 +88,13 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("CITY");
 
+                    b.Property<int?>("ContactInformationsId")
+                        .HasColumnType("int")
+                        .HasColumnName("CONTACT_INFORMATIONS_ID");
+
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("COUNTRY");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("EMAIL");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)")
@@ -54,10 +103,6 @@ namespace DataAccess.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("LAST_NAME");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("PHONE_NUMBER");
 
                     b.Property<int?>("RaceId")
                         .HasColumnType("int")
@@ -68,6 +113,8 @@ namespace DataAccess.Migrations
                         .HasColumnName("SEX");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ContactInformationsId");
 
                     b.HasIndex("RaceId");
 
@@ -128,13 +175,13 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("CITY");
 
+                    b.Property<int?>("ContactInformationsId")
+                        .HasColumnType("int")
+                        .HasColumnName("CONTACT_INFORMATIONS_ID");
+
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("COUNTRY");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("EMAIL");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)")
@@ -143,10 +190,6 @@ namespace DataAccess.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("LAST_NAME");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("PHONE_NUMBER");
 
                     b.Property<int?>("PrimaryDiagnosisId")
                         .HasColumnType("int")
@@ -162,6 +205,8 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ContactInformationsId");
+
                     b.HasIndex("PrimaryDiagnosisId");
 
                     b.HasIndex("RaceId");
@@ -169,73 +214,59 @@ namespace DataAccess.Migrations
                     b.ToTable("RECEIVER");
                 });
 
-            modelBuilder.Entity("Kidney.DataAccess.Entities.User", b =>
+            modelBuilder.Entity("DataAccess.Entities.CompatibilityScore", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.HasOne("Kidney.DataAccess.Entities.Giver", "Giver")
+                        .WithMany()
+                        .HasForeignKey("GiverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
+                    b.HasOne("Kidney.DataAccess.Entities.Receiver", "Receiver")
+                        .WithMany()
+                        .HasForeignKey("ReceiverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
+                    b.Navigation("Giver");
 
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
+                    b.Navigation("Receiver");
                 });
 
             modelBuilder.Entity("Kidney.DataAccess.Entities.Giver", b =>
                 {
+                    b.HasOne("DataAccess.Entities.ContactInformations", "ContactInformations")
+                        .WithMany()
+                        .HasForeignKey("ContactInformationsId");
+
                     b.HasOne("Kidney.DataAccess.Entities.Race", "Race")
-                        .WithMany("Givers")
+                        .WithMany()
                         .HasForeignKey("RaceId");
+
+                    b.Navigation("ContactInformations");
 
                     b.Navigation("Race");
                 });
 
             modelBuilder.Entity("Kidney.DataAccess.Entities.Receiver", b =>
                 {
+                    b.HasOne("DataAccess.Entities.ContactInformations", "ContactInformations")
+                        .WithMany()
+                        .HasForeignKey("ContactInformationsId");
+
                     b.HasOne("Kidney.DataAccess.Entities.PrimaryDiagnosis", "PrimaryDiagnosis")
-                        .WithMany("Receivers")
+                        .WithMany()
                         .HasForeignKey("PrimaryDiagnosisId");
 
                     b.HasOne("Kidney.DataAccess.Entities.Race", "Race")
-                        .WithMany("Receivers")
+                        .WithMany()
                         .HasForeignKey("RaceId");
+
+                    b.Navigation("ContactInformations");
 
                     b.Navigation("PrimaryDiagnosis");
 
                     b.Navigation("Race");
-                });
-
-            modelBuilder.Entity("Kidney.DataAccess.Entities.PrimaryDiagnosis", b =>
-                {
-                    b.Navigation("Receivers");
-                });
-
-            modelBuilder.Entity("Kidney.DataAccess.Entities.Race", b =>
-                {
-                    b.Navigation("Givers");
-
-                    b.Navigation("Receivers");
                 });
 #pragma warning restore 612, 618
         }

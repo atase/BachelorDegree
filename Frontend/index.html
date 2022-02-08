@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="registerStyle.css">
+        <link rel="stylesheet" href="sampleDataStyle.css">
+        <link rel="stylesheet" href="genericStyle.css">
+        <script src="sampleDataFunctionality.js"></script>
+        <script src="functionality.js"></script>
+        <script src="appFunctionality.js"></script>
+        <script src="genericFunctionality.js"></script>
+        <!--<script src="requests.js"></script>-->
+        <script src="./Models/BLOOD_TYPE.js"></script>
+        <script src="./Models/PRIMARY_DIAGNOSIS.js"></script>
+        <script src="./Models/RACE.JS"></script>
+        <script src="./Models/SEX.JS"></script>
+        <script src="./endpoints.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"> </script>
+    </head>
+    <body onload="load_data(); reqGetStatistics();">
+        <div class="top_container" id="top_container_id">
+            <div class="tl_container">
+                <h2>Kidney paired exchange problem</h2>
+                <h3>App used for visualization and modelling sample data in the context of compatibility between donnors and receivers regarding kidney transplant.</h3>
+                <h3>The applications of bipartite graphs in the context of Kidney Paired Exchange problem.</h3>
+            </div>
+            <i class="fa fa-arrow-right" onclick="display_main_container();open_container('SAMPLE_DATA');"></i>
+            <div class="tr_container" id="tr_container_id">
+                <div class="tr_column" id="tr_column1">
+                    <h2>Givers</h2>
+                </div>
+                <div class="tr_column" id="tr_column2">
+                    <h2>Receivers</h2>
+                </div>
+                
+                <div class="animation_intro_container"></div>
+
+
+            </div>
+        </div>
+        <div class="main_container" id="main_container">
+            <div class="left_container">
+                <div class="cbutton" onclick="open_container('SAMPLE_DATA');select_subject_tab('R')" id="menu_sd_btn_id"><p>Sample Data</p></div>
+                <div class="cbutton" onclick="open_container('COMPATIBILITIES');reqCompatibilityScores();" id="menu_comp_btn_id"><p>Compatibilities</p></div>
+                <div class="cbutton" onclick="open_container('OPTIMAL_ASSIGMENT');reqMatching();" id="menu_op_btn_id"><p>Optimal Assigment</p></div>
+                <div class="generic_if">
+                    <div class="generic_functionality">
+                        <p onclick="reqGenerateScores()">Generate scores</p>
+                    </div>
+                    <div class="generic_informations" id="generic_informations">
+                        <p>No subjects: </p>
+                        <p>No givers: </p>
+                        <p>No receivers: </p>
+                    </div>
+                </div>
+                <div class="intro_btn_container">
+                    <i class="fa fa-arrow-left" onclick="display_intro_container()"></i>
+                </div>
+                
+            </div>
+
+            <div class="message_container_background" id="message_container_background_id">
+
+                <div class="error_container" id="error_container_id">
+                    <i class="fa fa-close close_symbol" onclick="close_message_container()"></i>
+                    <p id="error_container_message_id"></p>
+                    <i class="fa fa-exclamation-triangle nok_cc_symbol"></i>
+                </div>
+
+                <div class="confirmation_container" id="confirmation_container_id">
+                    <i class="fa fa-close close_symbol" onclick="close_message_container()"></i>
+                    <p id="confirmation_container_message_id"></p>
+                    <i class="fa fa-check ok_cc_symbol"></i>
+                </div>
+
+            </div>
+
+
+            <div class="display_container" id="display_container">
+
+                <div class="compatibilities_container dcontainer" id="visualization_container">
+                    <svg class="edge_container" id="cedge_container" xmlns="http://www.w3.org/2000/svg"></svg>
+                </div>
+
+                <div class="optimal_assigment_container dcontainer" id="optimal_assigment_container">
+                    <svg class="edge_container" id="oedge_container" xmlns="http://www.w3.org/2000/svg"></svg>
+                </div>
+
+                <div class="sample_data_container dcontainer" id="sample_data_container">
+                    <div class="sample_data_container_functionality">
+                        <i class="fa fa-heartbeat sd_func_btn" id="receivers_selection_id" onclick="select_subject_tab('R');add_sdo_selection_effect(this);"></i>
+                        <i class="fa fa-user-md sd_func_btn" id="givers_selection_id" onclick="select_subject_tab('G');add_sdo_selection_effect(this);"></i>
+                        <i class="fa fa-filter"  onclick="display_filter_tab();"></i>
+                        <i class="fa fa-plus" id="add_addsd_id" onclick="display_add_sample_tab();"></i>
+                    </div>
+
+                    <div class="sample_data_display">
+                        <table class="sample_data_table" id="sample_data_table_id">
+                            <tr>
+                                <th>Edit</th>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Age</th>
+                                <th>Sex</th>
+                                <th>Email</th>
+                                <th>Phone number</th>
+                                <th>Race</th>
+                                <th>Blood type</th>
+                                <th id="sd_pd_id">Primary diagnosis</th>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="add_sample_data_background_effect_container" id="add_sample_data_background_effect_container_id">
+                <div class="add_sample_data_general_container">
+                    <div class="add_sample_data_options">
+                        <ul>
+                            <!--<li onclick="display_sd_generate_tab()"><p>Generate sample data</p></li>-->
+                            <li onclick="display_sd_giver_tab()" id="add_sample_reg_giver_option_id"><p>Register giver</p></li>
+                            <li onclick="display_sd_receiver_tab()" id="add_sample_reg_receiver_option_id"><p>Register receiver</p></li>
+                        </ul>
+                    </div>
+
+                    <!--SAMPLE DATA CONTAINER-->
+
+                    <div class="add_sample_data_close_container">
+                        <i class="fa fa-close" onclick="close_add_sample_data_container()"></i>
+                    </div>
+
+                    <div class="add_sample_data_forms">
+                        <!--SAMPLE DATA CONTAINER-->
+                        <div class="generate_sample_data_container sdc_data_container" id="generate_sample_data_container_id">
+                            <p>generate_sample_data</p>
+                        </div>
+
+                        <div class="register_giver_container sdc_data_container" id="register_giver_container_id">
+                            <div class="register_giver_layout" id="id_register_giver_layout">
+                
+                                <div class="register_giver_container" id="register_giver_container_format_id">
+                                    <div class="register_giver_personal_informations_container">
+                                        <div class="giver_register_input_header">
+                                            <p>Personal informations</p>
+                                        </div>
+                                        <div class="giver_input">
+                                            <label for="g_firstName">First name: </label>
+                                            <input type="text" placeholder="First Name" name="g_firstName" required>
+                                        </div>
+                    
+                                        <div class="giver_input">
+                                            <label for="g_lastName">Last name: </label>
+                                            <input type="text" placeholder="Last Name" name="g_lastName" required>
+                                        </div>
+                                        
+                                        <div class="giver_input">
+                                            <label for="g_age">Age: </label>
+                                            <input type="text" placeholder="Age" name="g_age">
+                                        </div>
+                                        
+                    
+                                        <div class="giver_input">
+                                            <label for="g_sex">Sex: </label>
+                                            <select name="g_sex" id="g_sex">
+                                                <option value="MALE">Male</option>
+                                                <option value="FEMALE">Female</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="giver_input">
+                                            <label for="g_country">Country: </label>
+                                            <input type="text" placeholder="Country" name="g_country">
+                                        </div>
+                                        
+                    
+                                        <div class="giver_input">
+                                            <label for="g_city">City: </label>
+                                            <input type="text" placeholder="City" name="g_city">
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="register_giver_left_container_informations">
+                                        <div class="register_giver_contact_informations_container">
+                                            <div class="giver_register_input_header">
+                                                <p>Contact informations</p>
+                                            </div>
+                                            <div class="giver_input">
+                                                <label for="g_email">Email: </label>
+                                                <input type="text" placeholder="Email" name="g_email">
+                                            </div>
+                                            
+                        
+                                            <div class="giver_input">
+                                                <label for="g_phoneNumber">Phone number: </label>
+                                                <input type="text" placeholder="Phone number" name="g_phoneNumber">
+                                            </div>
+                                        </div>
+                
+                                        <div class="register_giver_medical_informations_container">
+                                            <div class="giver_register_input_header">
+                                                <p>Medical informations</p>
+                                            </div>
+                                            <div class="giver_input">
+                                                <label for="g_bloodType">Blood type: </label>
+                                                <select name="g_bloodType" id="g_bloodType">
+                                                    <option value="O">O</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="AB">AB</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="giver_input">
+                                                <label for="g_race">Race: </label>
+                        
+                                                <!--
+                                                    INDIGENOUS,
+                                                    CAUCASIAN,
+                                                    ASIAN,
+                                                    PEOPLE OF COLOUR,
+                                                    OTHER
+                                                -->
+                                                <select name="g_race" id="g_race">
+                                                    <option value="WHITE">White</option>
+                                                    <option value="INDIGENOUS">Indigenous</option>
+                                                    <option value="CAUCASIAN">Caucasian</option>
+                                                    <option value="ASIAN">Asian</option>
+                                                    <option value="PEOPLE_OF_COLOUR">People of colour</option>
+                                                    <option value="OTHER">Other</option>
+                                                </select>
+                        
+                                            </div>
+                                        </div>
+                                    </div>
+    
+        
+                                </div>
+                                <div class="register_giver_layout_button">
+                                    <button onclick="register_giver_functionality()">Register</button>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="register_receiver_container sdc_data_container" id="register_receiver_container_id">
+                            <div class="register_receiver_layout" >
+                                
+                                <div class="register_receiver_container" id="register_receiver_container_format_id">
+
+                                    <div class="register_receiver_personal_informations_container">
+                                        <div class="receiver_register_input_header">
+                                            <p>Personal informations</p>
+                                        </div>
+                                        <div class="receiver_input">
+                                            <label for="r_firstName">First name: </label>
+                                            <input type="text" placeholder="First Name" name="r_firstName">
+                                        </div>
+                    
+                                        <div class="receiver_input">
+                                            <label for="r_lastName">Last name: </label>
+                                            <input type="text" placeholder="Last Name" name="r_lastName">
+                                        </div>
+                                        
+                                        <div class="receiver_input">
+                                            <label for="r_age">Age: </label>
+                                            <input type="text" placeholder="Age" name="r_age">
+                                        </div>
+                                        
+                    
+                                        <div class="receiver_input">
+                                            <label for="r_sex">Sex: </label>
+                                            <select name="r_sex" id="r_sex">
+                                                <option value="MALE">Male</option>
+                                                <option value="FEMALE">Female</option>
+                                            </select>
+                                        </div>
+                    
+                                        <div class="receiver_input">
+                                            <label for="r_country">Country: </label>
+                                            <input type="text" placeholder="Country" name="r_country">
+                                        </div>
+                                        
+                    
+                                        <div class="receiver_input">
+                                            <label for="r_city">City: </label>
+                                            <input type="text" placeholder="City" name="r_city">
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="register_receiver_left_container_informations">
+
+                                        <div class="register_receiver_contact_informations_container">
+                                            <div class="receiver_register_input_header">
+                                                <p>Contact informations</p>
+                                            </div>
+                                            <div class="receiver_input">
+                                                <label for="r_email">Email: </label>
+                                                <input type="text" placeholder="Email" name="r_email">
+                                            </div>
+                                            
+                        
+                                            <div class="receiver_input">
+                                                <label for="r_phoneNumber">Phone number: </label>
+                                                <input type="text" placeholder="Phone number" name="r_phoneNumber">
+                                            </div>
+                                        </div>
+                                    
+                
+                                    
+                                        <div class="register_receiver_medical_informations_container">
+                                            <div class="receiver_register_input_header">
+                                                <p>Medical informations</p>
+                                            </div>
+                                            <div class="receiver_input">
+                                                <label for="r_bloodType">Blood type: </label>
+                                                <select name="r_bloodType" id="r_bloodType">
+                                                    <option value="O">O</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="AB">AB</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="receiver_input">
+                                                <label for="r_race">Race: </label>
+                        
+                                                <!--
+                                                    INDIGENOUS,
+                                                    CAUCASIAN,
+                                                    ASIAN,
+                                                    PEOPLE OF COLOUR,
+                                                    OTHER
+                                                -->
+                                                <select name="r_race" id="r_race">
+                                                    <option value="WHITE">White</option>
+                                                    <option value="INDIGENOUS">Indigenous</option>
+                                                    <option value="CAUCASIAN">Caucasian</option>
+                                                    <option value="ASIAN">Asian</option>
+                                                    <option value="PEOPLE_OF_COLOUR">People of colour</option>
+                                                    <option value="OTHER">Other</option>
+                                                </select>
+                        
+                                            </div>
+                        
+                                            <div class="receiver_input">
+                                                <label for="r_primaryDiagnosis">Primary diagnosis: </label>
+                                                
+                                                <!--
+                                                    DIABETES,
+                                                    GLOMERULONEPHRITIS,
+                                                    HYPERTENSION,
+                                                    CYSTIC_KIDNEY_DISEASE,
+                                                    INTERSTITIAL_NEPHRITIS,
+                                                    OBSTRUCTIVE_NEPHROPATHY,
+                                                    OTHER,
+                                                    UNKNOWN,
+                                                    MISSING
+                                                -->
+                        
+                                                <select name="r_primaryDiagnosis" id="r_primaryDiagnosys">
+                                                    <option value="DIABETES">Diabetes</option>
+                                                    <option value="GLOMERULONEPHRITIS">Glomerulonephritis</option>
+                                                    <option value="HYPERTENSION">Hypertension</option>
+                                                    <option value="CYSTIC_KIDNEY_DISEASE">Cystic Kidney Disease</option>
+                                                    <option value="INTERSTITIAL_NEPHRITIS">Interstitial Nephritis</option>
+                                                    <option value="OBSTRUCTIVE_NEPHROPATHY">Obstructive Nephrophathy</option>
+                                                    <option value="KIDNEY FAILURE">Kidney Failure</option>
+                                                    <option value="OTHER">Other</option>
+                                                    <option value="UNKNOWN">Unknown</option>
+                                                    <option value="MISSING">Missing</option>
+                                                </select>
+                                            </div>
+                                            </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="register_receiver_layout_button">
+                                    <button onclick="register_receiver_functionality()">Register</button>
+                                </div>
+                            </div>
+            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="background_efect_container" id="background_efect_container_id">
+                <div class="sample_data_filters_container_left" id="sample_data_filters_container_left_id">
+                    <div class="filter_container_top">
+                        <i class="fa fa-arrow-right" onclick="hide_filter_tab()"></i>
+                    </div>
+                    <div class="sdfilters_container">
+                        <input type="text" name="filter_fn" placeholder="First name">
+                        <input type="text" name="filter_ln" placeholder="Last name">
+                        <input type="text" name="filter_country" placeholder="Country">
+                        <input type="text" name="filter_city" placeholder="City">
+                        <input type="text" name="filter_age" placeholder="Age">
+                        <input type="text" name="filter_sex" placeholder="Sex">
+                        <input type="text" name="filter_race" placeholder="Race">
+                        <input type="text" name="filter_bt" placeholder="Blood type">
+                        <input type="text" name="filter_pd" placeholder="Primary Diagnosys">
+                    </div>
+                    <div class="filter_container_bottom" onclick="filter_data_functionality()">
+                        <p>Filter data</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="background_container" id="background_container_id">
+
+                <div class="subject_information_container" id="subject_information_container">
+                    <div class="close_bcontainer"  onclick="close_bcontainer()">
+                        <i class="fa fa-close"></i>
+                    </div>
+                    <h2 id="subject_type_info_container"></h2>
+
+
+                    <p class="subject_di_display" id="subject_di_display_pi">Personal informations</p>
+
+                    <table class="subject_information_display" id="subject_information_display">
+                        <tr>
+                            <td><i class="fa fa-user"></i></td>
+                            <td><span id="name_display"></span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-globe"></i></td>
+                            <td><span id="country_display"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Age: </span></td>
+                            <td><span id="age_display"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Sex: </span></td>
+                            <td><span id="sex_display"></span></td>
+                        </tr>
+                    </table>
+
+
+                    <p class="subject_di_display">Contact informations</p>
+
+                    <table class="subject_contact_display" id="subject_contact_display">
+                        <tr>
+                            <td><i class="fa fa-envelope"></i></td>
+                            <td><span id="email_display"></span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-phone-square"></i></td>
+                            <td><span id="phone_display"></span></td>
+                        </tr>
+                    </table>
+
+                    <p class="subject_di_display">Medical informations</p>
+
+                    <table class="subject_medical_display" id="subject_medical_display">
+                        <tr>
+                            <td><span>Race: </span></td>
+                            <td><span id="race_display"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Blood type: </td>
+                            <td><span id="blood_display"></span></td>
+                        </tr>
+                        <tr id="trprimary_diagnosys_display">
+                            <td>Primary diagnosis: </td>
+                            <td><span id="primary_diagnosys_display"></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="background_effect_sd_operations" id="background_effect_sd_operations_id">
+                <div class="sd_operations_container" id="sd_operations_container_id">
+                    <i class="fa fa-close" onclick="close_sample_data_options()"></i>
+                    <div class="sd_operations_input" id="sd_operations_input_id">
+                        
+                    </div>
+                    <div class="sd_operations_actions">
+                        
+                        <div class="sd_operations_save" onclick = "save_sd_operations_data(this)"><p>Save</p></div>
+                        <div class="sd_operations_delete" onclick="delete_sd_subject(this)"><p>Delete</p></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="background_effect_operations_confirmations" id="background_effect_operations_confirmations_id">
+                <div class="operations_confirmations_container">
+                    <i class="fa fa-close" onclick="close_operations_confirmations_container()"></i>
+                    <div class="operations_confirmations_message_container" id="operations_confirmations_message_container">
+                        <p id="operations_confirmations_message_info_id"></p>
+                        <p>Are you sure you want to continue?</p>
+                    </div>
+                    <div class="operations_confirmations_container_actions">
+                        <div class="operations_confirmations_positive_btn" onclick="operations_confirmations_positive(this)"><p>YES</p></div>
+                        <div class="operations_confirmations_negative_btn" onclick="operations_confirmations_negative(this)"><p>NO</p></div>
+                    </div>
+                </div>
+            <div>
+
+
+
+        </div>
+    </body>
+</html>

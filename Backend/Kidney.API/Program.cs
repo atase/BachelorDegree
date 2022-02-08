@@ -14,6 +14,9 @@ namespace Transplant.API
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+            /*HungarianAlgorithm.HungarianAlgorithm algo = new HungarianAlgorithm.HungarianAlgorithm();
+            var rez = algo.Compute();
+            Console.WriteLine(rez);*/
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

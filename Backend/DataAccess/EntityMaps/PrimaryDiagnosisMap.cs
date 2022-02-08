@@ -18,10 +18,6 @@ namespace DataAccess.EntityMaps
 
                 entity.Property(x => x.Id).HasColumnName("ID");
                 entity.Property(x => x.Name).HasColumnName("NAME");
-
-                entity.HasMany(x => x.Receivers)
-                      .WithOne(x => x.PrimaryDiagnosis)
-                      .HasForeignKey(x => x.PrimaryDiagnosisId);
             });
         }
     }

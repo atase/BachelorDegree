@@ -24,6 +24,5 @@ namespace Kidney.DataAccess.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual List<Receiver> Receivers { get; set; }
     }
 }

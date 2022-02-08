@@ -9,8 +9,7 @@
       "Business/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
-          "DataAccess": "1.0.0",
-          "HungarianAlgorithm": "1.0.0"
+          "DataAccess": "1.0.0"
         },
         "runtime": {
           "Business.dll": {}
@@ -1081,14 +1080,6 @@
         "runtime": {
           "DataAccess.dll": {}
         }
-      },
-      "HungarianAlgorithm/1.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
-        },
-        "runtime": {
-          "HungarianAlgorithm.dll": {}
-        }
       }
     }
   },
@@ -1771,11 +1762,6 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "DataAccess/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "HungarianAlgorithm/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

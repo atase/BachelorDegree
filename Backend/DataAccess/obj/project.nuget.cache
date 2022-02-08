@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oU1w5zzC1giPeUidamnoYZBpV2jroI6lJNgBQug313TwkDbQg7a+uJrvDJ9LEW39KYDrwoCOmI07+j6tJZDsXw==",
+  "dgSpecHash": "mA9+JDX2JbvZx1Bvb0sVOgjCdOS/Uq1KjeODCF/wTADRforbSkgn+YxtsAbQqtxcpLhk8DelqGhF4I03Nw7XBw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pnastasa\\Desktop\\BD\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pnastasa\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\pnastasa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
