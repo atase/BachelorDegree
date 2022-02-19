@@ -5908,11 +5908,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Kidney.API\\Kidney.API.csproj",
+      "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\Kidney.API\\Kidney.API.csproj",
       "projectName": "Kidney.API",
-      "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Kidney.API\\Kidney.API.csproj",
+      "projectPath": "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\Kidney.API\\Kidney.API.csproj",
       "packagesPath": "C:\\Users\\pnastasa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Kidney.API\\obj\\",
+      "outputPath": "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\Kidney.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pnastasa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5929,11 +5929,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Business\\Business.csproj": {
-              "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Business\\Business.csproj"
+            "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\Business\\Business.csproj"
             },
-            "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj"
             }
           }
         }

@@ -5803,11 +5803,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\DataAccess.csproj",
+      "projectPath": "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\pnastasa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pnastasa\\AppData\\Roaming\\NuGet\\NuGet.Config",

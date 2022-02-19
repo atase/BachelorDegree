@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TvN0OMCONjEPUrAdmqCKoG+TGRhmAbu19OfKauV5MWWgIGs2Af5uUD/QGa0x8OpLpxbR6Fs2mcHkrydvXmMw4A==",
+  "dgSpecHash": "+QcnDkeqY4RhzgyjSFeBjXW/ljQz+9XFKD7RRSzBiU/5FHvtgYutT9xqAPzVAl+JTHufFdjeccwlbiXWs4kHng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pnastasa\\Desktop\\repos\\Backend\\Kidney.API\\Kidney.API.csproj",
+  "projectFilePath": "C:\\Users\\pnastasa\\Desktop\\Degree\\BachelorDegree\\Backend\\Kidney.API\\Kidney.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pnastasa\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\pnastasa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
