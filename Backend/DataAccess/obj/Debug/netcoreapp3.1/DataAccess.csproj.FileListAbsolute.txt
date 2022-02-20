@@ -23,15 +23,3 @@ C:\Users\pnastasa\Desktop\repos\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataA
 C:\Users\pnastasa\Desktop\repos\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.pdb
 C:\Users\pnastasa\Desktop\repos\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.genruntimeconfig.cache
 C:\Users\pnastasa\Desktop\repos\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.AssemblyReference.cache
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfoInputs.cache
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfo.cs
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CoreCompileInputs.cache
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.dll
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.pdb
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.deps.json
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.runtimeconfig.json
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.runtimeconfig.dev.json
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.dll
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.pdb
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.genruntimeconfig.cache

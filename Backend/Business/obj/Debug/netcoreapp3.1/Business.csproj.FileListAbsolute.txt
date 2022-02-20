@@ -26,16 +26,3 @@ C:\Users\pnastasa\Desktop\repos\Backend\Business\obj\Debug\netcoreapp3.1\Busines
 C:\Users\pnastasa\Desktop\repos\Backend\Business\obj\Debug\netcoreapp3.1\Business.dll
 C:\Users\pnastasa\Desktop\repos\Backend\Business\obj\Debug\netcoreapp3.1\Business.pdb
 C:\Users\pnastasa\Desktop\repos\Backend\Business\obj\Debug\netcoreapp3.1\Business.csproj.CopyComplete
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\obj\Debug\netcoreapp3.1\Business.csproj.AssemblyReference.cache
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\obj\Debug\netcoreapp3.1\Business.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfoInputs.cache
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfo.cs
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\obj\Debug\netcoreapp3.1\Business.csproj.CoreCompileInputs.cache
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\obj\Debug\netcoreapp3.1\Business.dll
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\obj\Debug\netcoreapp3.1\Business.pdb
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\bin\Debug\netcoreapp3.1\Business.deps.json
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\bin\Debug\netcoreapp3.1\Business.dll
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\bin\Debug\netcoreapp3.1\Business.pdb
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\bin\Debug\netcoreapp3.1\DataAccess.dll
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\bin\Debug\netcoreapp3.1\DataAccess.pdb
-C:\Users\pnastasa\Desktop\Degree\BachelorDegree\Backend\Business\obj\Debug\netcoreapp3.1\Business.csproj.CopyComplete
