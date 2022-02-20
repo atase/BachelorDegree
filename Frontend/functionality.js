@@ -147,10 +147,6 @@ function draw_compatibilities(data){
     console.log("Receivers scores");
     receivers_scores.forEach(e => e.scores.forEach( s => console.log(e.id + " -> " + s)))
 
-    //receivers.sort(compare_subjects);
-    //receivers_scores.sort(compare_subjects);
-    //scores.sort(compare_subjects);
-
     var xgc = 340;
     var xrc = 840;
     var ycm = 100;
@@ -281,20 +277,11 @@ function draw_optimal_assigment(data){
     var xgc = 340;
     var xrc = 840;
     var ycm = 100;
-
-    //givers.sort(compare_subjects);
     
     receivers_scores.sort(compare_subjects);
-    //scores.sort(compare_subjects);
+
     receivers.forEach(e => console.log("REC: " + e.id));
     scores.forEach(e => console.log("SC:" + e.gid + " " + e.id + " " + e.score));
-
-    console.log("receivers sort" + receivers);
-    console.log("receiers_scor_sort" + scores);
-    //scores.sort(compare_subjects);
-    //scores.sort()
-    //givers_scores.sort(compare_subjects);
-    //receivers_scores.sort(compare_subjects);*/
 
 
     for(var i=0;i<givers.length;i++){
@@ -374,7 +361,6 @@ function createNode(type, index){
 }
 
 function createNodeOnSVG(type, cx, cy, id, container){
-    //container.style.height = (container.getBBox().height + 100) + 'px';
     var element = document.createElementNS('http://www.w3.org/2000/svg',"circle");
     element.setAttribute('id', id);
     element.setAttribute('cx', cx);
