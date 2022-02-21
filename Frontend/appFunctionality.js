@@ -26,6 +26,15 @@ function open_container(container){
 }
 
 
+function reinitialize_container_on_generate_scores(){
+    if(document.getElementById('visualization_container').style.display == 'block'){
+        reqCompatibilityScores();
+    }else if(document.getElementById('optimal_assigment_container').style.display == 'block'){
+        reqMatching();
+    }
+}
+
+
 function close_bcontainer(){
     document.getElementById("background_container_id").style.display = "none";
 }

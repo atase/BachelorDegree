@@ -1,10 +1,18 @@
 function writeStatistics(data){
     var container = document.getElementById("generic_informations");
-    var paragraphs = container.getElementsByTagName("p");
-    console.log(data);
-    paragraphs[0].innerText = paragraphs[0].innerText + data.numberOfSubjects;
-    paragraphs[1].innerText = paragraphs[1].innerText + data.numberOfGivers;
-    paragraphs[2].innerText = paragraphs[2].innerText + data.numberOfReceivers;
+    //var paragraphs = container.getElementsByTagName("p");
+    container.innerHTML = '';
+
+    var p1 = document.createElement("p");
+    p1.innerText = "Number of subjects: " + data.numberOfSubjects;
+    var p2 = document.createElement("p");
+    p2.innerText = "Number of givers: " + data.numberOfGivers;
+    var p3 = document.createElement("p");
+    p3.innerText = "Number of receivers: " + data.numberOfReceivers;
+
+    container.appendChild(p1);
+    container.appendChild(p2);
+    container.appendChild(p3);
 
 }   
 
@@ -40,6 +48,7 @@ function reqGenerateScores(){
     req.setRequestHeader('Content-Type', 'application/json');
     req.onreadystatechange = function(){
         if(req.readyState == 4 && req.status == 200){
+            reinitialize_container_on_generate_scores();
             displaySuccessContainer("Compatibility scores have been generated.");
         }else{
             displayErrorContainer("Failed to generate new scores, please try again.");

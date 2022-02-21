@@ -1,3 +1,11 @@
+// GLOBAL ARRAY OF ID FOR GIVERS NODES
+let giversNodesIds = [];
+// GLOBAL ARRAY OF ID FOR RECEIVERS NODES
+let receiversNodesIds = [];
+// GLOBAL ARRAY OF ID FOR EDGES
+let edgesIds = [];
+
+
 function load_data(){
     draw_intro_graph();
 }
@@ -32,8 +40,6 @@ function draw_intro_graph(){
         c1.appendChild(el);
         gd[i] = false;
     }
-
-    console.log(gcoords);
     var c2 = document.getElementById("tr_column2");
 
     for(var i=0;i<4;i++)
@@ -52,7 +58,6 @@ function draw_intro_graph(){
 }
 
 function add_to_array(obj, arr){
-    console.log("obj" + obj);
     if(arr.length == 0){
         arr[arr.length] = obj;
         return true;
@@ -76,22 +81,22 @@ function index_of_object(obj, arr){
         }
 }
 
-function add_subject_score_to_array(subject, value, arr){
+function add_subject_score_to_array(subject1, val, subject2, arr){
     if(arr.length == 0){
-        arr[0] = {id: subject.id, scores: []};
-        arr[0].scores.push(value);
+        arr[0] = {id: subject1.id, scores: []};
+        arr[0].scores.push({value: val, sortId: subject2.id});
         return;
     }
 
     for(var i=0;i<arr.length;i++){
-        if(arr[i].id == subject.id){
-            arr[i].scores.push(value);
+        if(arr[i].id == subject1.id){
+            arr[i].scores.push({value: val, sortId: subject2.id});
             return;
         }
     }
 
-    arr[arr.length] = {id: subject.id, scores: []}
-    arr[arr.length-1].scores.push(value);
+    arr[arr.length] = {id: subject1.id, scores: []}
+    arr[arr.length-1].scores.push({value: val, sortId: subject2.id});
 
 }
 
@@ -106,7 +111,19 @@ function compare_subjects(x, y){
 }
 
 
+function moveArrayItemToNewIndex(arr, old_index, new_index){
+    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+    return arr;
+}
+
+
 function draw_compatibilities(data){
+    // initialize global variables
+    receiversNodesIds = [];
+    giversNodesIds = [];
+    edgesIds = [];
+
+
     var container = document.getElementById("cedge_container");
     container.innerHTML = "";
     var receivers = [];
@@ -126,10 +143,12 @@ function draw_compatibilities(data){
         add_to_array(data['compatibilityScores'][i]['first']['second'], receivers);
         add_subject_score_to_array( data['compatibilityScores'][i]['first']['first'],
                                     data['compatibilityScores'][i]['second'],
+                                    data['compatibilityScores'][i]['first']['second'],
                                     givers_scores);
 
         add_subject_score_to_array( data['compatibilityScores'][i]['first']['second'],
                                     data['compatibilityScores'][i]['second'],
+                                    data['compatibilityScores'][i]['first']['first'],
                                     receivers_scores)
         scores[rs++] = {gid:data['compatibilityScores'][i]['first']['first']['id'], 
                             gidx: index_of_object(data['compatibilityScores'][i]['first']['first'], givers), 
@@ -138,14 +157,14 @@ function draw_compatibilities(data){
                             score:data['compatibilityScores'][i]['second']}
         
     }
-    console.log("Givers");
+    /*console.log("Givers");
     givers.forEach(e => console.log(e));
     console.log("Receivers" + receivers.length);
     receivers.forEach(e => console.log(e));
     console.log("Giver scores");
     givers_scores.forEach(e => e.scores.forEach( s => console.log(e.id + " -> " + s)))
     console.log("Receivers scores");
-    receivers_scores.forEach(e => e.scores.forEach( s => console.log(e.id + " -> " + s)))
+    receivers_scores.forEach(e => e.scores.forEach( s => console.log(e.id + " -> " + s)))*/
 
     var xgc = 340;
     var xrc = 840;
@@ -165,24 +184,37 @@ function draw_compatibilities(data){
         createInfoContainerOnSVG("R", receivers[i], receivers_scores[i].scores, rp[i], container);
 
     }
-    console.log("Scores length" + scores.length);
+    //console.log("Scores length" + scores.length);
 
     for(var i=0;i<scores.length;i++){
         if(scores[i].score != 0){
-            createEdge(gp[scores[i]['gidx']].x + 30, gp[scores[i]['gidx']].y, rp[scores[i]['ridx']].x - 30, rp[scores[i]['ridx']].y, container);
+            createEdge(
+                gp[scores[i]['gidx']].x + 30,
+                gp[scores[i]['gidx']].y,
+                rp[scores[i]['ridx']].x - 30,
+                rp[scores[i]['ridx']].y,
+                container,
+                "G#" + scores[i]['gid'] + "_R#" + scores[i]['rid'] );
         }
     }
 
+    console.log(receiversNodesIds);
+    console.log(giversNodesIds);
+    console.log(edgesIds);
+
 }
 
+
 function createInfoContainerOnSVG(type, subject, scores, cords, container){
+    if(scores.length == 0){
+        return ;
+    }
     var text = "[" + subject.firstName + " " + subject.lastName + ", Blood type: " + subject.bloodType + "]";
-    console.log(scores);
     var scoresText = "[ "
-    
+
     for(var i=0;i<scores.length;i++){
-        if(scores[i] != 0){
-            scoresText = scoresText + scores[i] + ", ";
+        if(scores[i].value != 0){
+            scoresText = scoresText + scores[i].value + ", ";
         }
         
     }
@@ -247,6 +279,7 @@ function draw_optimal_assigment(data){
             }
             add_subject_score_to_array( givers[ri-1],
                                         matching[i]['second'],
+                                        givers[ri-1],
                                         givers_scores);
         }
 
@@ -256,6 +289,7 @@ function draw_optimal_assigment(data){
             }
             add_subject_score_to_array( receivers[rj-1],
                                         matching[i]['second'],
+                                        receivers[rj-1],
                                         receivers_scores)
         }
     }
@@ -360,6 +394,82 @@ function createNode(type, index){
     return element;
 }
 
+
+function uncolorElementsFromSvg(type, id){
+    var excludedNodes = [];
+    if(type == 'G'){
+        for(var i=0;i<giversNodesIds.length;i++){
+            if(giversNodesIds[i] != id){
+                document.getElementById(giversNodesIds[i]).setAttribute('opacity', '0.2');
+            }
+        }
+        
+        for(var i=0;i<edgesIds.length;i++){
+            if(!edgesIds[i].includes(id)){
+                document.getElementById(edgesIds[i]).setAttribute('opacity', '0.2');
+            }else{
+                var idParts = edgesIds[i].split('_');
+                excludedNodes.push(idParts[1]);
+            }
+        }
+
+        for(var i=0;i<receiversNodesIds.length;i++){
+            document.getElementById(receiversNodesIds[i]).setAttribute('opacity', '0.2');
+        }
+
+        for(var i=0;i<excludedNodes.length;i++){
+            document.getElementById(excludedNodes[i]).setAttribute('opacity', '1');
+        }
+    }else{
+        for(var i=0;i<receiversNodesIds.length;i++){
+            if(receiversNodesIds[i] != id){
+                document.getElementById(receiversNodesIds[i]).setAttribute('opacity', '0.2');
+            }
+        }
+
+        for(var i=0;i<edgesIds.length;i++){
+            if(!edgesIds[i].includes(id)){
+                document.getElementById(edgesIds[i]).setAttribute('opacity', '0.2');
+            }else{
+                var idParts = edgesIds[i].split('_');
+                excludedNodes.push(idParts[0]);
+            }
+        }
+
+        for(var i=0;i<giversNodesIds.length;i++){
+            document.getElementById(giversNodesIds[i]).setAttribute('opacity', '0.2');
+        }
+
+        for(var i=0;i<excludedNodes.length;i++){
+            document.getElementById(excludedNodes[i]).setAttribute('opacity', '1');
+        }
+    }
+}
+
+function colorGiversNode(){
+    for(var i=0;i<giversNodesIds.length;i++){
+        document.getElementById(giversNodesIds[i]).setAttribute('opacity', '1');
+    }
+}
+
+function colorReceiversNode(){
+    for(var i=0;i<receiversNodesIds.length;i++){
+        document.getElementById(receiversNodesIds[i]).setAttribute('opacity', '1');
+    }
+}
+
+function colorEdges(){
+    for(var i=0;i<edgesIds.length;i++){
+        document.getElementById(edgesIds[i]).setAttribute('opacity', '1');
+    }
+}
+
+function colorElementsFromSvg(){
+    colorGiversNode();
+    colorReceiversNode();
+    colorEdges();
+}
+
 function createNodeOnSVG(type, cx, cy, id, container){
     var element = document.createElementNS('http://www.w3.org/2000/svg',"circle");
     element.setAttribute('id', id);
@@ -370,19 +480,24 @@ function createNodeOnSVG(type, cx, cy, id, container){
     element.style.cursor = "pointer";
     element.style.transitionDuration = "0.3s";
     element.addEventListener("mouseover", function(event) {
-        element.setAttribute('fill', 'black');
+        element.setAttribute('fill', 'rgb(0, 218, 73)');
+        uncolorElementsFromSvg(type, id);
     })
     element.addEventListener("click", function(event){
         request_subject_info(element.id);
     })
     if(type === "R"){
+        receiversNodesIds.push(id);
         element.addEventListener("mouseout", function(event) {
             element.setAttribute('fill', '#C84B31');
+            colorElementsFromSvg();
         })
         element.setAttribute('fill', '#C84B31');
     }else{
+        giversNodesIds.push(id);
         element.addEventListener("mouseout", function(event) {
             element.setAttribute('fill', '#ECDBBA');
+            colorElementsFromSvg();
         })
         element.setAttribute('fill', '#ECDBBA');
     }
@@ -390,14 +505,16 @@ function createNodeOnSVG(type, cx, cy, id, container){
     container.appendChild(element);
 }
 
-function createEdge(x1, y1, x2, y2, container){
+function createEdge(x1, y1, x2, y2, container, id){
+    edgesIds.push(id);
     var element = document.createElementNS('http://www.w3.org/2000/svg',"line");
-    element.setAttribute('id','line2');
+    element.setAttribute('id', id);
     element.setAttribute('x1', x1);
     element.setAttribute('y1', y1);
     element.setAttribute('x2', x2);
     element.setAttribute('y2', y2);
     element.setAttribute('stroke', 'black');
+
     container.appendChild(element);
 }
 
@@ -497,6 +614,7 @@ function reqMatching(){
 
 
 function close_message_container(){
+    reqGetStatistics();
     document.getElementById("error_container_id").style.display="none";
     document.getElementById("confirmation_container_id").style.display="none";
     document.getElementById("message_container_background_id").style.display="none";

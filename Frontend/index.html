@@ -43,15 +43,12 @@
             <div class="left_container">
                 <div class="cbutton" onclick="open_container('SAMPLE_DATA');select_subject_tab('R')" id="menu_sd_btn_id"><p>Sample Data</p></div>
                 <div class="cbutton" onclick="open_container('COMPATIBILITIES');reqCompatibilityScores();" id="menu_comp_btn_id"><p>Compatibilities</p></div>
-                <div class="cbutton" onclick="open_container('OPTIMAL_ASSIGMENT');reqMatching();" id="menu_op_btn_id"><p>Optimal Assigment</p></div>
+                <div class="cbutton" onclick="open_container('OPTIMAL_ASSIGMENT');reqMatching();" id="menu_op_btn_id"><p>Optimal Assignment</p></div>
                 <div class="generic_if">
                     <div class="generic_functionality">
                         <p onclick="reqGenerateScores()">Generate scores</p>
                     </div>
                     <div class="generic_informations" id="generic_informations">
-                        <p>No subjects: </p>
-                        <p>No givers: </p>
-                        <p>No receivers: </p>
                     </div>
                 </div>
                 <div class="intro_btn_container">
@@ -80,11 +77,11 @@
             <div class="display_container" id="display_container">
 
                 <div class="compatibilities_container dcontainer" id="visualization_container">
-                    <svg class="edge_container" id="cedge_container" xmlns="http://www.w3.org/2000/svg"></svg>
+                    <svg class="edge_container" id="cedge_container" xmlns="http://www.w3.org/2000/svg" overflow="visible"></svg>
                 </div>
 
                 <div class="optimal_assigment_container dcontainer" id="optimal_assigment_container">
-                    <svg class="edge_container" id="oedge_container" xmlns="http://www.w3.org/2000/svg"></svg>
+                    <svg class="edge_container" id="oedge_container" xmlns="http://www.w3.org/2000/svg" overflow="visible"></svg>
                 </div>
 
                 <div class="sample_data_container dcontainer" id="sample_data_container">
@@ -242,7 +239,7 @@
         
                                 </div>
                                 <div class="register_giver_layout_button">
-                                    <button onclick="register_giver_functionality()">Register</button>
+                                    <button onclick="register_giver_functionality();">Register</button>
                                 </div>
                             </div>
                         </div>
@@ -381,7 +378,7 @@
                                 </div>
 
                                 <div class="register_receiver_layout_button">
-                                    <button onclick="register_receiver_functionality()">Register</button>
+                                    <button onclick="register_receiver_functionality();">Register</button>
                                 </div>
                             </div>
             
@@ -479,14 +476,14 @@
 
             <div class="background_effect_sd_operations" id="background_effect_sd_operations_id">
                 <div class="sd_operations_container" id="sd_operations_container_id">
-                    <i class="fa fa-close" onclick="close_sample_data_options()"></i>
+                    <i class="fa fa-close" onclick="close_sample_data_options();"></i>
                     <div class="sd_operations_input" id="sd_operations_input_id">
                         
                     </div>
                     <div class="sd_operations_actions">
                         
                         <div class="sd_operations_save" onclick = "save_sd_operations_data(this)"><p>Save</p></div>
-                        <div class="sd_operations_delete" onclick="delete_sd_subject(this)"><p>Delete</p></div>
+                        <div class="sd_operations_delete" onclick="delete_sd_subject(this);"><p>Delete</p></div>
                     </div>
                 </div>
             </div>
@@ -494,7 +491,7 @@
 
             <div class="background_effect_operations_confirmations" id="background_effect_operations_confirmations_id">
                 <div class="operations_confirmations_container">
-                    <i class="fa fa-close" onclick="close_operations_confirmations_container()"></i>
+                    <i class="fa fa-close" onclick="close_operations_confirmations_container();"></i>
                     <div class="operations_confirmations_message_container" id="operations_confirmations_message_container">
                         <p id="operations_confirmations_message_info_id"></p>
                         <p>Are you sure you want to continue?</p>
